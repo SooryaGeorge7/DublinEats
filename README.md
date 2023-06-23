@@ -1,39 +1,192 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# **Dublin Eats**
 
-Welcome,
+## **Overview**
 
-This is the Code Institute student template for Codeanywhere. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Dublin Eats is a website designed to allow a user to find and review Restaurants in Dublin. The site features a search function that allows users to search for any Restaurant in Dublin. The restaurants can be viewed according to cuizines. Users will be able to view Restaurant details such as location, price range, etc. Users will also be able to review Restaurants and pin some restaurants page onto their own customizable profile page. Each user needs to sign up to be able to review and search for restaurants. Each user will have a profile page that they would be able to edit once logged in.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **May 11th, 2023**
+## **Project Goals**
 
-## Codeanywhere Reminders
+This is my fourth portfolio project for [Code Institute](https://codeinstitute.net/). In this project i aim to demonstrate my goal of showcasing my skills in django , bootstrap etc.
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+## **Contents**
 
-`python3 -m http.server`
+1. [Overview](#overview)
+1. [Project Goals](#project-goals)
+1. [UX](#ux)
+   - [The Strategy Plane](#the-strategy-plane)
+     - [The Ideal User](#the-ideal-user)
+     - [Site Goals](#site-goals)
+   - [Agile Planning](#agile-planning)
+     - [Epics](#epics)
+     - [User Stories](#user-stories)
+   - [The Skeleton Plane](#the-skeleton-plane)
+     - [Wireframes](#wireframes)
+     - [Database Schema](#database-schema)
+     - [Security](#security)
+   - [The Scope Plane](#the-scope-plane)
+   - [The Structure Plane](#the-structure-plane)
+     - [Features](#features)
+     - [Future Features](#future-features)
+   - [The Surface Plane](#the-surface-plane)
+     - [Design](#future-features)
+       - [Colour Scheme](#colour-scheme)
+       - [Typography](#typography)
+       - [Imagery](#Imagery)
+1. [Technologies Used](#technologies-used)
+   - [Languages Used](#languages-used)
+   - [Frameworks and Tools Used](#frameworks-and-tools-used)
+   - [Libraries Used](#libraries-used)
+1. [Testing](#testing)
+1. [Deployment](#deployment)
+1. [Credits](#credits)
+1. [Acknowledgements](#acknowledgements)
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+## **UX**
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+## **The Strategy Plane**
 
-`http_server`
+### **The Ideal User**
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+- User who enjoys food and would like to discover new restaurants or cuizines.
+- User resides in Dublin and would share the app to their socials to generate traffic.
+- User who will create a list of restaurants that they still want to visit(pin the restaurants)
+- User who would rate and review restaurants that they have been to.
+- User who has customized their page to showcase their interests in any aspects of food.
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+### **Site Goals**
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- To provide users with all the restaurants and discover new ones.
+- To provide users with the ability to review/rate restaurants.
+- To provide users with the ability to create their own Profile.
+- To provide users with the ability to view other users reviews/ratings.
+- To provide users with the ability to pin / favourite the restaurants they want to go to.
 
-To log into the Heroku toolbelt CLI:
+## **Agile Planning**
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### **Userstories**
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## **The Skeleton Plane**
 
----
+#### **Wireframes**
 
-Happy coding!
+<details><summary>Desktop</summary>
+
+</details>
+
+<details><summary>Tablet</summary>
+
+</details>
+
+<details><summary>Mobile</summary>
+
+</details>
+
+#### **Database Scheme**
+
+#### **Security**
+
+## **The Scope Plane**
+
+## **The Structure Plane**
+
+### **Features**
+
+### **Future Features**
+
+## **The Surface Plane**
+
+### **Design**
+
+#### **Colour Scheme**
+
+#### **Typography**
+
+#### **Imagery**
+
+## **Technologies Used**
+
+### **Languages Used**
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+- [Javascript](https://en.wikipedia.org/wiki/JavaScript)
+- [Python](<https://en.wikipedia.org/wiki/Python_(programming_language)>)
+
+### **Frameworks and Tools Used**
+
+1. ## [Django](https://www.djangoproject.com/)
+1. [Bootstrap](https://blog.getbootstrap.com/)
+   -
+1. [ElephantSQL](https://www.elephantsql.com/)
+   -
+1. [Cloudinary](https://cloudinary.com/)
+   -
+1. [Git](https://git-scm.com/)
+   -
+1. [GitHub:](https://github.com/)
+   -
+1. ## [Heroku](https://www.heroku.com/)
+1. [Balsamiq](https://balsamiq.com/)
+   -
+1. ## [Stackoverflow](https://stackoverflow.com/)
+1. ## [CI Python Linter](https://pep8ci.herokuapp.com/)
+1. ## [ezgif.com](https://ezgif.com/)
+
+### **Libraries Used**
+
+## **Testing**
+
+## **Deployment**
+
+### **GitHub**
+
+This project was developed by forking a specialized [Code Institute template](https://github.com/Code-Institute-Org/python-essentials-template) which simulates a terminal in the web browser.
+
+1. Click Use this template
+2. Name the repository
+3. Launch using the Gitpod web extension
+4. Pin project in Gitpod workspaces
+
+### **Version Control**
+
+For version control the following steps were made:
+
+For version control the following steps were made:
+
+1. Changes made to files in Gitpod
+2. Files made ready for commit with command - git add "filename", or git add . to add all files
+3. For the commits the following command was run along with commit description - git commit -m "This is my commit etc"
+4. To move the changes to Github the following command was run - git push
+5. Alternatively files can be made ready for commit using the Source Control staging area in Gitpod
+6. Files were staged and a message describing the commit was made before committing and pushing it to GitHub
+
+### **Cloning the GitHub Repository**
+
+Creating a clone enables you to make a copy of the repository at that point in time - this lets you run a copy of the project locally: This can be done by:
+
+1. Navigating to
+2. Clicking on the arrow on the green code button at the top of the list of files
+3. Select Local then HTTPS copy the URL it provides to the clipboard
+4. Navigate to your code editor of choice and within the terminal change the directory to the location you want to clone the repository to.
+5. Type 'git clone' and paste the HTTPS link you copied from GitHub
+6. Press enter and git will clone the repository to your local machine
+
+### **Forking the GitHub Repository**
+
+By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
+
+1. Log in to GitHub and locate the repository
+2. At the top of the Repository (not the top of the page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+3. You should now have a copy of the original repository in your GitHub account.
+
+### **Final Deployment with Heroku**
+
+## **Credits**
+
+### **Code Used**
+
+### **Content**
+
+### **Media**
+
+## **Acknowledgements**
