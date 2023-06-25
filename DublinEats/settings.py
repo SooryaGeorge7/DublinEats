@@ -36,6 +36,7 @@ ALLOWED_HOSTS = ['8000-sooryageorge7-dublineats-o7pyysdnm7.us2.codeanyapp.com',
 # Application definition
 
 INSTALLED_APPS = [
+    'home.apps.HomeConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+
 ]
 
 MIDDLEWARE = [
