@@ -18,6 +18,59 @@
 </head>
 
 <body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    DublinEats
+                    <!-- <img src="../media/index images/dublineats-logo.webp" alt="logo-image"> -->
+                </a>
+                <div class="d-flex justify-content-center align-items-center flex-grow-1">
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                    </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Restaurants
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">All</a></li>
+                                <li><a class="dropdown-item" href="#">Asian</a></li>
+                                <li><a class="dropdown-item" href="#">European</a></li>
+                                <li><a class="dropdown-item" href="#">African</a></li>
+                                <li><a class="dropdown-item" href="#">Irish/English</a></li>
+                                <li><a class="dropdown-item" href="#">American</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Log in</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sign up</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
     <main>
         {% block content %}{% endblock %}
