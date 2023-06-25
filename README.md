@@ -71,17 +71,44 @@ This is my fourth portfolio project for [Code Institute](https://codeinstitute.n
 
 <details><summary>Desktop</summary>
 
+- ![Desktop page 1](/documentation/wireframes/desktop/desktop-homepage.png)
+- ![Desktop page 2](/documentation/wireframes/desktop/desktop-restaurants-page.png)
+- ![Desktop page 3](/documentation/wireframes/desktop/desktop-restaurant-details.png)
+- ![Desktop page 4](/documentation/wireframes/desktop/desktop-userprofile.png)
+- ![Desktop page 5](/documentation/wireframes/desktop/desktop-loginpage.png)
+- ![Desktop page 6](/documentation/wireframes/desktop/desktop-signup-page.png)
+
 </details>
 
 <details><summary>Tablet</summary>
+
+- ![Tablet page 1](/documentation/wireframes/tablet/tablet-homepage.png)
+- ![Tablet page 2](/documentation/wireframes/tablet/tablet-restaurant-page.png)
+- ![Tablet page 3](/documentation/wireframes/tablet/tablet-restaurant-detail.png)
+- ![Tablet page 4](/documentation/wireframes/tablet/tablet-userprofile.png)
+- ![Tablet page 5](/documentation/wireframes/tablet/tablet-login-page.png)
+- ![Tablet page 6](/documentation/wireframes/tablet/tablet-signuppage.png)
 
 </details>
 
 <details><summary>Mobile</summary>
 
+- ![Mobile page 1](/documentation/wireframes/mobile/mobile-homepage.png)
+- ![Mobile page 2](/documentation/wireframes/mobile/mobile-restaurantpage.png)
+- ![Mobile page 3](/documentation/wireframes/mobile/mobile-restaurant-detail.png)
+- ![Mobile page 4](/documentation/wireframes/mobile/mobile-user-profile.png)
+- ![Mobile page 5](/documentation/wireframes/mobile/mobile-loginpage.png)
+- ![Mobile page 6](/documentation/wireframes/mobile/mobile-signup-page.png)
+
 </details>
 
+#### \\\*\*Flow Chart logic
+
+- ![Flow chart of logic](/documentation/flow-diagram/flow-chart-dublineats.jpg)
+
 #### **Database Scheme**
+
+- ![Entity relationships](/documentation/entity-relationship/entity-relationship.png)
 
 #### **Security**
 
@@ -99,6 +126,8 @@ This is my fourth portfolio project for [Code Institute](https://codeinstitute.n
 
 #### **Colour Scheme**
 
+- ![Dublin Eats color palette](/documentation/color-scheme/restaurant-color-palette.png)
+
 #### **Typography**
 
 #### **Imagery**
@@ -115,25 +144,13 @@ This is my fourth portfolio project for [Code Institute](https://codeinstitute.n
 ### **Frameworks and Tools Used**
 
 1. ## [Django](https://www.djangoproject.com/)
-1. [Bootstrap](https://blog.getbootstrap.com/)
-   -
-1. [ElephantSQL](https://www.elephantsql.com/)
-   -
-1. [Cloudinary](https://cloudinary.com/)
-   -
-1. [Git](https://git-scm.com/)
-   -
-1. [GitHub:](https://github.com/)
-   -
-1. ## [Heroku](https://www.heroku.com/)
-1. [Balsamiq](https://balsamiq.com/)
-   -
-1. ## [Stackoverflow](https://stackoverflow.com/)
-1. ## [CI Python Linter](https://pep8ci.herokuapp.com/)
-1. ## [ezgif.com](https://ezgif.com/)
+1. ## ## [Bootstrap](https://blog.getbootstrap.co# [ElephantSQL](https://www.elephantsql.com/)
+1. ## ## [Cloudinary](https://cloudinary.com/)
+1. ## ## [GitHub:](https://github.com/)
+1. ## ## [Balsamiq](https://balsa# [Stackoverflow](https://stackoverflow.com/)
+1. ## ## [CI Python Linter](https://pep8ci.herokuapp.com/)
 
-### **Libraries Used**
-
+## ### **Libraries Used**
 ## **Testing**
 
 ## **Deployment**
