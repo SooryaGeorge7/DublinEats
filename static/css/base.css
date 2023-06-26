@@ -53,3 +53,17 @@
     outline-color: var(--secondary-color);
     border-color: var(--secondary-color);
 }
+
+.footer {
+    background-color: var(--primary-color);
+    width: 100%;
+    min-height: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.socials {
+    margin-bottom: 0;
+}
