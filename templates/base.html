@@ -12,23 +12,23 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!--Stylesheet-->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css'}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
 
     <title>Dublin Eats</title>
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark nav-colour">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    DublinEats
-                    <!-- <img src="../media/index images/dublineats-logo.webp" alt="logo-image"> -->
+                    Dublin Eats
+                    <!-- <img id="dublineats-logo" src="{% static 'logo/logo-image.webp' %}" alt="logo-image"> -->
                 </a>
                 <div class="d-flex justify-content-center align-items-center flex-grow-1">
-                    <form class="d-flex">
+                    <form class="d-flex ">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <button class="btn btn-outline-success button-dbneats" type="submit">Search</button>
                     </form>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
