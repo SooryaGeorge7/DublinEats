@@ -37,6 +37,7 @@ ALLOWED_HOSTS = ['8000-sooryageorge7-dublineats-o7pyysdnm7.us2.codeanyapp.com',
 
 INSTALLED_APPS = [
     'home.apps.HomeConfig',
+    'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
