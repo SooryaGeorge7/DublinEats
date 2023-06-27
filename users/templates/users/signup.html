@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% block content %}
 <div class="container justify-content-center text-center">
     <div>
@@ -8,7 +9,7 @@
     <form method="POST">
         {% csrf_token %}
         <div>
-            {{form}}
+            {{ form }}
         </div>
         <div>
             <button class="btn btn-outline-info button-dbneats" type="submit"> Sign Up </button>
