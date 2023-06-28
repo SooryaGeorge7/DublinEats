@@ -9,9 +9,9 @@ def signup(request):
         form = UserSignupForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Signup Succesful {username}!')
+            messages.success(request, f'Signup Succesful {username}!You May Now Log In!')
             form.save()
-            return redirect('dublineats-home')
+            return redirect('userlogin')
     else:
         form = UserSignupForm()
     return render(request, 'users/signup.html', {'form': form})
