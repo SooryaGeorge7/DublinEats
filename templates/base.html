@@ -61,13 +61,18 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Profile</a>
                         </li>
+                        {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Log in</a>
+                            <a class="nav-link" href="{% url 'userlogout' %}">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'userlogin' %}">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sign up</a>
+                            <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
                         </li>
-
+                        {% endif %}
                     </ul>
                 </div>
             </div>
