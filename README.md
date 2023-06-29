@@ -45,6 +45,8 @@ This is my fourth portfolio project for [Code Institute](https://codeinstitute.n
 
 ## **The Strategy Plane**
 
+Dublin Eats websites intends to allow  foodies of Dublin or tourists to discover new restaurants in Dublin which are top rated. Users will be able to search restaurants according to categories and rate/review the ones they have been to. They should be able to create their own profile page where they can also pin the restaurants they would like to visit in the future.
+
 ### **The Ideal User**
 
 - User who enjoys food and would like to discover new restaurants or cuizines.
