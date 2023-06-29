@@ -65,6 +65,13 @@ Dublin Eats websites intends to allow  foodies of Dublin or tourists to discover
 
 ## **Agile Planning**
 
+1.	User stories are implemented which identifies the necessary features and functions of the website.
+2.	Prioritzie User stories from high importance to least important. This is done using labels such as “must-haves”, “should-haves”, “could-haves”
+3.	Categorize user stories further my having labels such as documentations for README and TESTING user stories.
+4.	Break userstories into smaller tasks .
+
+The must-have user stories were prioritized first. Certain other user stories were implemented based on time and complexity. Kanan board for the project can be viewed here
+
 ### **Userstories**
 
 ## **The Skeleton Plane**
