@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 
 <div class="container">
@@ -8,5 +8,15 @@
             alt="{{ profile.user.username }} Profile Image">
     </div>
     <h1>{{ profile.user.username }}</h1>
+    <div>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div>
+                {{ user_form|crispy }}
+                {{ profile_form|crispy }}
+            </div>
+            <button class="btn btn-outline-info button-dbneats" type="submit"> Update </button>
+        </form>
+    </div>
 </div>
 {% endblock content %}
