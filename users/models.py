@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 # Create your models here.
 
-placeholder= (f"https://res.cloudinary.com/dif9bjzee/image/upload/v1688138902/backgroud_pvtg4c.png")
+placeholder= (f"https://res.cloudinary.com/dif9bjzee/image/upload/v1688163762/backgroud_hwsqzo.png")
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
