@@ -37,8 +37,29 @@ def restaurants(request, category):
     else:
         pass
 
-    
-    return render(request, "restaurants/categories.html")
+    restaurants = []
+    response = requests.get(url)
+    restaurant_data = response.json()
+    results = restaurant_data.get("results", [])
+    print("RESPONSE: ", response)
+    print("RESTAURANT_DATA:", restaurant_data)
+
+    for result in results:
+            photo_reference = result.get('photos', [])[0].get('photo_reference')
+            if photo_reference:
+                image_url = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={photo_reference}&key={GOOGLE_PLACES_API_KEY}"
+            else:
+                image_url = "no image"
+            restaurants.append({
+                "name": result["name"],
+                "category": category,
+                "address": result["formatted_address"],
+                "latitude": result["geometry"]["location"]["lat"],
+                "longitude": result["geometry"]["location"]["lng"],
+                "image_url" : image_url,
+                
+            })
+    return render(request, "restaurants/categories.html",{"restaurants": restaurants})
 
     
 
