@@ -62,7 +62,7 @@ def restaurants(request, category):
                 image_url = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={photo_reference}&key={GOOGLE_PLACES_API_KEY}"
             else:
                 image_url = "no image"
-            
+            place_id = result.get("place_id")
             if place_id:
                 details_data = get_place_details(place_id)
                 website_url = details_data.get("website", "")
