@@ -7,6 +7,18 @@ import requests
 
 GOOGLE_PLACES_API_KEY = os.environ.get("GOOGLE_PLACES_API_KEY")
 
+def get_place_details(place_id):
+    details_url = "https://maps.googleapis.com/maps/api/place/details/json"
+    params = {
+        "place_id": place_id,
+        "fields": "website",
+        "key": GOOGLE_PLACES_API_KEY,
+    }
+    response = requests.get(details_url, params=params)
+    details_data = response.json()
+    return details_data.get("result", {})
+
+
 def restaurants(request, category):
     if category == "asian":
         
@@ -50,6 +62,14 @@ def restaurants(request, category):
                 image_url = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={photo_reference}&key={GOOGLE_PLACES_API_KEY}"
             else:
                 image_url = "no image"
+            
+            if place_id:
+                details_data = get_place_details(place_id)
+                website_url = details_data.get("website", "")
+            
+            else:
+                website_url = ""
+
             restaurants.append({
                 "name": result["name"],
                 "category": category,
@@ -57,6 +77,7 @@ def restaurants(request, category):
                 "latitude": result["geometry"]["location"]["lat"],
                 "longitude": result["geometry"]["location"]["lng"],
                 "image_url" : image_url,
+                "website_url": website_url,
                 
             })
     return render(request, "restaurants/categories.html",{"restaurants": restaurants})
