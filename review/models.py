@@ -32,5 +32,13 @@ class Reviews(models.Model):
     value_for_money = models.IntegerField(choices=Rating)
 
     def __str__(self):
-        return f"{self.restaurant.name} - {self.user.username}'s Ratings"
+        return f"{self.restaurant.name} - {self.user.username}'s "
 
+class Comment(models.Model):
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    comment_text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.restaurant.name} - {self.user.username}'s Comment"
