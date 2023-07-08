@@ -67,3 +67,8 @@
 .socials {
     margin-bottom: 0;
 }
+
+/** star rates **/
+.checked {
+    color:var(--secondary-color);
+}

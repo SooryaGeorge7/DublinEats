@@ -3,6 +3,7 @@
 import os
 from django.shortcuts import render
 import requests
+from review.models import Restaurant
 
 
 GOOGLE_PLACES_API_KEY = os.environ.get("GOOGLE_PLACES_API_KEY")
@@ -78,9 +79,11 @@ def restaurants(request, category):
                 "longitude": result["geometry"]["location"]["lng"],
                 "image_url" : image_url,
                 "website_url": website_url,
-                
+                "place_id": place_id,
             })
+            
     return render(request, "restaurants/categories.html",{"restaurants": restaurants})
+
 
     
 
