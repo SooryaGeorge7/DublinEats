@@ -81,13 +81,17 @@ def restaurants(request, category):
                 "website_url": website_url,
                 "place_id": place_id,
             })
-            restaurant_details = Restaurant(
-                name = result["name"],
-                website = website_url,
-                address = result["formatted_address"],
-                RestaurantId = place_id,
-            )            
-            restaurant_details.save()
+
+            try:
+                restaurant_details = Restaurant.objects.get(RestaurantId=place_id)
+            except Restaurant.DoesNotExist:
+                restaurant_details = Restaurant(
+                    name = result["name"],
+                    website = website_url,
+                    address = result["formatted_address"],
+                    RestaurantId = place_id,
+                )            
+                restaurant_details.save()
     return render(request, 'restaurants/categories.html', {"restaurants":restaurants})
                 
  
