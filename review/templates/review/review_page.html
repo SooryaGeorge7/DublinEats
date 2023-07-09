@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+    <form method="POST" class="reviewform">
+        {% csrf_token %}
+
+        <!-- Rating Form -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Rate {{ restaurant.name }}</h5>
+
+                <!-- Taste Rating -->
+                <div class="rating">{{ rating_form.taste }}
+                    <!-- Taste Rating -->
+                    <h3>Taste</h3>
+                    <button type="button" class="btn"><i class="bi bi-star" id="first"></i></button>
+                    <button type="button" class="btn"><i class="bi bi-star" id="second"></i></button>
+                    <button type="button" class="btn"><i class="bi bi-star" id="third"></i></button>
+                    <button type="button" class="btn"><i class="bi bi-star" id="fourth"></i></button>
+                    <button type="button" class="btn"><i class="bi bi-star" id="fifth"></i></button>
+                </div>
+                <div class="rating">{{ rating_form.ambience }}
+                    <!-- Taste Rating -->
+                    <h3>Ambience</h3>
+                    <span  id="first"><i class="bi bi-star"></i></span>
+                    <span  id="second"><i class="bi bi-star"></i></span>
+                    <span  id="third"><i class="bi bi-star"></i></span>
+                    <span  id="fourth"><i class="bi bi-star"></i></span>
+                    <span  id="fifth"><i class="bi bi-star"></i></span>
+                </div>
+                <div class="rating">{{ rating_form.customer_service }}
+                    <!-- Taste Rating -->
+                    <h3>Customer Service</h3>
+                    <span  id="first"><i class="bi bi-star"></i></span>
+                    <span  id="second"><i class="bi bi-star"></i></span>
+                    <span  id="third"><i class="bi bi-star"></i></span>
+                    <span  id="fourth"><i class="bi bi-star"></i></span>
+                    <span  id="fifth"><i class="bi bi-star"></i></span>
+                </div>
+                <div class="rating">{{ rating_form.location }}
+                    <!-- Taste Rating -->
+                    <h3>Location</h3>
+                    <span  id="first"><i class="bi bi-star"></i></span>
+                    <span  id="second"><i class="bi bi-star"></i></span>
+                    <span  id="third"><i class="bi bi-star"></i></span>
+                    <span  id="fourth"><i class="bi bi-star"></i></span>
+                    <span  id="fifth"><i class="bi bi-star"></i></span>
+                </div>
+                <div class="rating">{{ rating_form.value_for_money }}
+                    <!-- Taste Rating -->
+                    <h3>Value for Money</h3>
+                    <span  id="first"><i class="bi bi-star"></i></span>
+                    <span  id="second"><i class="bi bi-star"></i></span>
+                    <span  id="third"><i class="bi bi-star"></i></span>
+                    <span  id="fourth"><i class="bi bi-star"></i></span>
+                    <span  id="fifth"><i class="bi bi-star"></i></span>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Comment Form -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Leave a Comment</h5>
+
+                <!-- Comment -->
+                <div class="form-group">
+                    <label for="id_comment_text">Comment:</label>
+                    {{ comment_form.comment_text }}
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    
+</section>
+{% endblock %}

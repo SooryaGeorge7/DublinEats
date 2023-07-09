@@ -16,4 +16,4 @@ def review(request, restaurant_id):
         'rating_form': rating_form,
         'comment_form': comment_form
     }
-    return render(request, 'review/review_page.html', context
+    return render(request, 'review/review_page.html', context)
