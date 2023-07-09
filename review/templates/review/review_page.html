@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
 <section>
     <form method="POST" class="reviewform">
@@ -75,6 +75,10 @@
         <!-- Submit Button -->
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-    
+    {% block extra_js %}
+            <!-- Customizible JS -->
+        <script src="{% static 'js/rate.js' %}"></script>
+    {% endblock extra_js %}
+
 </section>
 {% endblock %}
