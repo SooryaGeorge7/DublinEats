@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <section class="d-flex justify-content-center align-items-center">
-    <form method="POST" class="reviewform text-center">
+    <form method="POST" class="reviewform text-center" enctype="multipart/form-data">
         {% csrf_token %}
 
         <!-- Rating Form -->
@@ -11,7 +11,7 @@
                 <h3 class="card-title">Rate {{ restaurant.name }}</h3>
 
                 <!-- Taste Rating -->
-                <div class="rating taste">
+                <div class="rating taste">{{rating_form.taste}}
                     <!-- Taste Rating -->
                     <h4>Taste</h4>
                     <button type="button" class="btn"><i class="bi bi-star" id="first"></i></button>
@@ -20,7 +20,7 @@
                     <button type="button" class="btn"><i class="bi bi-star" id="fourth"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="fifth"></i></button>
                 </div>
-                <div class="rating ambience">
+                <div class="rating ambience">{{rating_form.ambience}}
                     <!-- Taste Rating -->
                     <h4>Ambience</h4>
                     <button type="button" class="btn"><i class="bi bi-star" id="first"></i></button>
@@ -29,7 +29,7 @@
                     <button type="button" class="btn"><i class="bi bi-star" id="fourth"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="fifth"></i></button>
                 </div>
-                <div class="rating customer_service">
+                <div class="rating customer_service">{{rating_form.customer_service}}
                     <!-- Taste Rating -->
                     <h4>Customer Service</h4>
                     <button type="button" class="btn"><i class="bi bi-star" id="first"></i></button>
@@ -38,7 +38,7 @@
                     <button type="button" class="btn"><i class="bi bi-star" id="fourth"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="fifth"></i></button>
                 </div>
-                <div class="rating location">
+                <div class="rating location">{{rating_form.location}}
                     <!-- Taste Rating -->
                     <h4>Location</h4>
                     <button type="button" class="btn"><i class="bi bi-star" id="first"></i></button>
@@ -47,7 +47,7 @@
                     <button type="button" class="btn"><i class="bi bi-star" id="fourth"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="fifth"></i></button>
                 </div>
-                <div class="rating value_for_money">
+                <div class="rating value_for_money">{{rating_form.value_for_money}}
                     <!-- Taste Rating -->
                     <h4>Value for Money</h4>
                     <button type="button" class="btn"><i class="bi bi-star" id="first"></i></button>
@@ -63,14 +63,11 @@
         <div class="card mb-3">
             <div class="card-body">
                 <h5 class="card-title">Leave a Review!</h5>
-
-                <!-- Comment -->
-                <div class="form-group">
-                    
-                    {{ comment_form.comment_text }}
-                </div>
-            </div>
-        </div>
+                 <div class="form-group"> 
+                    {{ rating_form.comment_text }}
+                </div> 
+            </div> 
+        </div>  
 
         <!-- Submit Button -->
         <button type="submit" class="btn btn-primary">Submit</button>
