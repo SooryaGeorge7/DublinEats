@@ -17,7 +17,11 @@
                         <a href="{{ restaurant.website_url }}" class="btn btn-primary"> website</a>
                         <a href="#" class="btn btn-secondary position-absolute top-0 end-0"
                         target="_blank" rel="noopener" aria-label="Pin this restaurant"><i class="bi bi-pin-angle-fill"></i></a>
-                        
+                        <a href="{% url 'review' restaurant.place_id %}" class="btn btn-primary">
+                            Review <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+
+
                     </div>
                 </div>
             </div>
