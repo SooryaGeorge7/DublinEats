@@ -72,3 +72,22 @@
 .checked {
     color:var(--secondary-color);
 }
+
+/** image overshadow  **/
+
+.position-relative {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.position-relative:hover .overlay {
+    opacity: 1;
+}

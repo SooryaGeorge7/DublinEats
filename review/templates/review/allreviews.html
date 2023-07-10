@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<!-- All Reviews Start -->
+<section class="allreviews min-vh-100">
+    <div class="container">
+        
+        <div class="row mb-5">
+            {% if reviews %}
+            {% for review in reviews %}
+            <!-- Review Data Start -->
+            <div class="col-12 py-3 px-3">
+                <div class="card bg-light text-dark">
+                    
+                        <div class="row">
+                            
+                            <div class="col-8 d-flex justify-content-end">
+                                <div class="d-flex flex-column">
+                                    <p class="text-end">{{ review.created_on }}</p>
+                                    <p class="text-end"><span>Review by:
+                                        </span>{{ review.user.username }}</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h2>{{ review.restaurant.name }}</h2>
+                                
+                                <p><span>Taste: </span>{{ review.taste }}/5</p>
+                                <p><span>Ambience: </span>{{ review.ambience }}/5</p>
+                                <p><span>Location: </span>{{ review.location }}/5</p>
+                                <p><span>Customer Service: </span>{{ review.customer_service }}/5</p>
+                                <p><span>Value For Money: </span>{{ review.value_for_money }}/5</p>
+                                <p><span>Comment: </span>{{ review.comment_text }}</p>
+                            </div>
+                        </div>
+                        
+                        
+                    
+                </div>
+            </div>
+            <!-- Review Data End -->
+            {% endfor %}
+            {% else %}
+            <p>No reviews found.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+<!-- All Reviews End -->
+
+{% endblock %}
