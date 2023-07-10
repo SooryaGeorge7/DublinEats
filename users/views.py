@@ -20,10 +20,23 @@ def signup(request):
         form = UserSignupForm()
     return render(request, 'users/signup.html', {'form': form})
 
+@login_required()
+def profile(request):
+    """
+    Renders the users profile, checks that the user matches profile user
+    """
+    # user = get_object_or_404(User, username=username)
 
+    profile = Profile.objects.get(user=request.user)
+
+    context = {
+        "profile": profile,
+    }
+
+    return render(request, "users/profile.html", context)
 
 @login_required
-def profile(request, username):
+def edit_profile(request, username):
     user = User.objects.get(username=username)
     profile = Profile.objects.get(user=request.user)
     
@@ -49,4 +62,4 @@ def profile(request, username):
         'user':user,
     }
 
-    return render(request, 'users/profile.html', context)
+    return render(request, 'users/edit_profile.html', context)
