@@ -20,9 +20,11 @@ def signup(request):
         form = UserSignupForm()
     return render(request, 'users/signup.html', {'form': form})
 
+
+
 @login_required
-def profile(request):
-    
+def profile(request, username):
+    user = User.objects.get(username=username)
     profile = Profile.objects.get(user=request.user)
     
     if request.method == 'POST':
@@ -43,7 +45,8 @@ def profile(request):
     context = {
         'user_form': user_form,
         'profile_form': profile_form,
-        'profile': profile
+        'profile': profile,
+        'user':user,
     }
 
     return render(request, 'users/profile.html', context)
