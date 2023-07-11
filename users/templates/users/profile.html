@@ -16,7 +16,21 @@
             {{ profile.about|safe }}
             <p class="mt-3"><span>Favourite Cuizine<br></span>{{ profile.fav_food }}</p>
             
-            
+            <p class="mb-0"><span>My Pinned Restaurants<br></span></p>
+            {% if profile.pinned_restaurants.exists %}
+            {% for restaurant in profile.pinned_restaurants.all %}
+            <p class="mb-0"><a class="text-white"href="{% url restaurant.website_url %}"
+                aria-label="View {{ restaurant.name }} details">{{ restaurant.name }}</a>
+                {% if request.user == profile.user %} -
+                <span><a href="{% url 'remove_pin' restaurant_id=restaurant.RestaurantId %}"
+                aria-label="Remove {{ restaurant.name }} from pinned restaurants.">Remove X</a></span>
+                {% endif %}
+            </p>
+            {% endfor %}
+            {% else %}
+            <p>You don’t have any pinned restaurants</p>
+            {% endif %}
+
             <div class=" row">
                 <div class="col-12 col-lg-4 d-flex flex-wrap my-3">
                     {% if user == profile.user %}

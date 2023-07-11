@@ -1,10 +1,13 @@
 
 # Create your views here.
 import os
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 import requests
 from review.models import Restaurant
-
+from users.models import Profile
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 GOOGLE_PLACES_API_KEY = os.environ.get("GOOGLE_PLACES_API_KEY")
 
@@ -94,4 +97,38 @@ def restaurants(request, category):
                 restaurant_details.save()
     return render(request, 'restaurants/categories.html', {"restaurants":restaurants})
                 
- 
+def to_visit(request, restaurant_id):
+    
+    
+    restaurant = Restaurant.objects.get(RestaurantId=restaurant_id)
+    user = request.user
+    profile = Profile.objects.get(user=user)
+
+    if restaurant in profile.pinned_restaurants.all():
+        profile.pinned_restaurants.remove(restaurant)
+        messages.success(
+            request,
+            f"{user.username} you have removed {restaurant} from your profile",
+        )
+    else:
+        profile.pinned_restaurants.add(restaurant)
+        messages.success(
+            request,
+            f"{user.username} you have added {restaurant} to your profile",
+        )
+    return redirect('profile')
+
+def remove_pin(request, restaurant_id):
+    
+    restaurant = Restaurant.objects.get(Restaurant=restaurant_id)
+    user = request.user
+    profile = Profile.objects.get(user=user)
+
+    if restaurant in profile.pinned_restaurants.all():
+        profile.pinned_restaurants.remove(restaurant)
+        messages.success(
+            request,
+            f"{user.username} you have removed {restaurant} from your watchlist",
+        )
+
+    return redirect("profile")
