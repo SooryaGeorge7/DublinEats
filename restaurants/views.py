@@ -8,6 +8,7 @@ from users.models import Profile
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
 
 GOOGLE_PLACES_API_KEY = os.environ.get("GOOGLE_PLACES_API_KEY")
 
@@ -100,7 +101,7 @@ def restaurants(request, category):
 def to_visit(request, restaurant_id):
     
     
-    restaurant = Restaurant.objects.get(RestaurantId=restaurant_id)
+    restaurant = get_object_or_404(Restaurant, RestaurantId=restaurant_id)
     user = request.user
     profile = Profile.objects.get(user=user)
 
@@ -116,11 +117,11 @@ def to_visit(request, restaurant_id):
             request,
             f"{user.username} you have added {restaurant} to your profile",
         )
-    return redirect('profile')
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def remove_pin(request, restaurant_id):
+    restaurant = get_object_or_404(Restaurant, RestaurantId=restaurant_id)
     
-    restaurant = Restaurant.objects.get(Restaurant=restaurant_id)
     user = request.user
     profile = Profile.objects.get(user=user)
 

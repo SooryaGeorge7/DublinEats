@@ -19,10 +19,10 @@
             <p class="mb-0"><span>My Pinned Restaurants<br></span></p>
             {% if profile.pinned_restaurants.exists %}
             {% for restaurant in profile.pinned_restaurants.all %}
-            <p class="mb-0"><a class="text-white"href="{% url restaurant.website_url %}"
+            <p class="mb-0"><a class="text-dark"href="{{ restaurant.website_url }}"
                 aria-label="View {{ restaurant.name }} details">{{ restaurant.name }}</a>
                 {% if request.user == profile.user %} -
-                <span><a href="{% url 'remove_pin' restaurant_id=restaurant.RestaurantId %}"
+                <span><a href="{% url 'remove_pin' restaurant.RestaurantId %}"
                 aria-label="Remove {{ restaurant.name }} from pinned restaurants.">Remove X</a></span>
                 {% endif %}
             </p>
