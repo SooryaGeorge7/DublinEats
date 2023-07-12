@@ -30,7 +30,21 @@
             {% else %}
             <p>You dont have any pinned restaurants</p>
             {% endif %}
-            
+            <p class="mt-3 mb-0"><span>My Reviews<br></span></p>
+            {% if profile.reviewed.exists %}
+            {% for restaurant in profile.reviewed.all %}
+            <p class="mb-0"><a class="text-dark"href="{{restaurant.website_url }}"
+                aria-label="View {{ restaurant.name }} details">{{ restaurant.name }}</a>
+                {% if request.user == profile.user %}
+                                    -
+                <span><a href="{% url 'profile_reviews' restaurant.RestaurantId %}"
+                aria-label="Change {{ restaurant.name }} review">Open</a></span>
+                {% endif %}
+            </p>
+            {% endfor %}
+            {% else %}
+            <p>You haven’t reviewed anything yet <p>
+            {% endif %}
 
             <div class=" row">
                 <div class="col-12 col-lg-4 d-flex flex-wrap my-3">

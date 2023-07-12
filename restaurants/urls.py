@@ -49,7 +49,11 @@ urlpatterns = [
         views.remove_pin,
         name="remove_pin",
     ),
-    
+    path(
+        "profile_reviews/<str:restaurant_id>/",
+        views.profile_reviews,
+        name="profile_reviews",
+    ),
 
 
 ]

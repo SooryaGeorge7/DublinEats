@@ -134,3 +134,15 @@ def remove_pin(request, restaurant_id):
 
     return redirect("profile")
 
+def profile_reviews(request, restaurant_id):
+    
+    #restaurant = Restaurant.objects.get(RestaurantId=restaurant_id)
+    restaurant = get_object_or_404(Restaurant, RestaurantId=restaurant_id)
+
+    user = request.user
+    # profile = Profile.objects.get(user=user)
+    profile = get_object_or_404(Profile, user=user)
+    review = get_object_or_404(Review, user=user,restaurant=restaurant)
+    if review:
+        if restaurant in profile.reviewed.all():
+            return redirect(reverse("edit_review", args=[restaurant_id, review.id]))
