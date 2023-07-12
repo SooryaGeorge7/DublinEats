@@ -15,6 +15,8 @@ def review(request, restaurant_id):
     ratings = Review.objects.filter(restaurant=restaurant)
     # comments = Comment.objects.filter(restaurant=restaurant)
     user = request.user
+    profile = get_object_or_404(Profile, user= user)
+    
     # # rating_form = RatingForm()
     # # comment_form = CommentForm()
     
@@ -27,6 +29,7 @@ def review(request, restaurant_id):
             # restaurant_comment = comment_form.save(commit=False)
             restaurant_rating.restaurant = restaurant
             # restaurant_comment.restaurant = restaurant
+            profile.reviewed.add(restaurant)
             restaurant_rating.user = user
             # restaurant_comment.user = user
             restaurant_rating.save()

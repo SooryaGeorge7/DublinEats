@@ -3,7 +3,7 @@
 import os
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 import requests
-from review.models import Restaurant
+from review.models import Restaurant, Review
 from users.models import Profile
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -133,3 +133,4 @@ def remove_pin(request, restaurant_id):
         )
 
     return redirect("profile")
+
