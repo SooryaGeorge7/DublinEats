@@ -64,3 +64,43 @@ def allreviews(request, restaurant_id):
     }
 
     return render(request, "review/allreviews.html", context)
+
+@login_required()
+def edit_review(request, restaurant_id, review_id):
+    
+    # restaurant = Restaurant.objects.get(RestaurantId=restaurant_id)
+    restaurant = get_object_or_404(Restaurant, RestaurantId=restaurant_id)
+
+    review = get_object_or_404(Review, id=review_id)
+    user = request.user
+
+    if review.user != user:
+        messages.error(request, "You are not authorized to edit this review.")
+        return redirect(reverse("allreviews"))
+
+    if request.method == "POST":
+        rating_form = RatingForm(request.POST, instance=review)
+        if rating_form.is_valid():
+            restaurant_rating = rating_form.save(commit=False)
+            restaurant_rating.save()
+            messages.success(
+                request, f"{user.username} your review has been updated"
+            )
+
+            return redirect(reverse("allreviews", kwargs={'restaurant_id': restaurant_id}))
+        else:
+            messages.success(
+                request,
+                "something went wrong.",
+            )
+    else:
+        rating_form = RatingForm(instance=review)
+
+    context = {
+        "rating_form": rating_form,
+        "review":review,
+        "restaurant": restaurant,
+        
+    }
+
+    return render(request, "review/review_page.html", context)

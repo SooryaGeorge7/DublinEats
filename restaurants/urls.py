@@ -49,5 +49,6 @@ urlpatterns = [
         views.remove_pin,
         name="remove_pin",
     ),
+    
 
 ]

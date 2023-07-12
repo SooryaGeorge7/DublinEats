@@ -36,7 +36,16 @@
                                 <p><span>Comment: </span>{{ review.comment_text }}</p>
                             </div>
                         </div>
-                        
+                        <div class="row">
+                            <div class="col-lg-4 my-2 d-flex flex-wrap">
+                                {% if user.is_authenticated and user == review.user %}
+                                <a class="site-btn flex-grow-1"
+                                    href="{% url 'edit_review'  review.restaurant.RestaurantId review.id %}">Edit
+                                    Review</a>
+                                {% endif %}
+                                
+                            </div>
+                        </div>
                         
                     
                 </div>
