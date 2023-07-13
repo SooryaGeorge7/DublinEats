@@ -129,7 +129,7 @@ def remove_pin(request, restaurant_id):
         profile.pinned_restaurants.remove(restaurant)
         messages.success(
             request,
-            f"{user.username} you have removed {restaurant} from your watchlist",
+            f"{user.username} you have removed {restaurant} from your profile",
         )
 
     return redirect("profile")

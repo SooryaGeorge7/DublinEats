@@ -71,11 +71,31 @@
 
         <!-- Submit Button -->
         <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-primary">Delete</button>
     </form>
     {% block extra_js %}
             <!-- Customizible JS -->
         <script src="{% static 'js/rate.js' %}"></script>
     {% endblock extra_js %}
 
+</section>
+<section class="d-flex justify-content-center align-items-center">
+                    {% if user.is_authenticated and user == review.user %}
+                    <form method="POST" class="reviewform text-center" action="{% url 'delete_review' review.restaurant.RestaurantId review.id %}"
+                        role="form">
+                        {% csrf_token %}
+                        <h2 class="mb-3 text-dark"><span>Delete</span> Review
+                        </h2>
+                        <p><i>
+                            <span>{{ review.user }}</span> Are you sure you want to delete your review and ratings?
+                        </i></p>
+                        <p>Once deleted, you will not be able to recover your review.</p>
+                        <button type="submit" name="action" value="delete" class="site-btn">Delete</button>
+                    </form>
+                    {% else %}
+                    <h3>You are not authorized to delete this review.</h3>
+                    {% endif %}
+         
+    
 </section>
 {% endblock %}
