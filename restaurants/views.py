@@ -16,7 +16,7 @@ def get_place_details(place_id):
     details_url = "https://maps.googleapis.com/maps/api/place/details/json"
     params = {
         "place_id": place_id,
-        "fields": "website",
+        "fields": "website,photos",
         "key": GOOGLE_PLACES_API_KEY,
     }
     response = requests.get(details_url, params=params)
@@ -62,15 +62,20 @@ def restaurants(request, category):
     print("RESTAURANT_DATA:", restaurant_data)
 
     for result in results:
-            photo_reference = result.get('photos', [])[0].get('photo_reference')
-            if photo_reference:
-                image_url = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={photo_reference}&key={GOOGLE_PLACES_API_KEY}"
-            else:
-                image_url = "no image"
+            
             place_id = result.get("place_id")
             if place_id:
                 details_data = get_place_details(place_id)
                 website_url = details_data.get("website", "")
+                photos = details_data.get("photos", "")
+                image_urls = []
+                for photo in photos:
+                    photo_reference = photo.get('photo_reference')
+                    if photo_reference:
+                        image_url = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={photo_reference}&key={GOOGLE_PLACES_API_KEY}"
+                        image_urls.append(image_url)
+                    else:
+                        image_urls.append("no image")
             
             else:
                 website_url = ""
@@ -81,7 +86,7 @@ def restaurants(request, category):
                 "address": result["formatted_address"],
                 "latitude": result["geometry"]["location"]["lat"],
                 "longitude": result["geometry"]["location"]["lng"],
-                "image_url" : image_url,
+                "image_urls" : image_urls,
                 "website_url": website_url,
                 "place_id": place_id,
             })
