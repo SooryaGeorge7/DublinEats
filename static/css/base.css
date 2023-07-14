@@ -91,3 +91,8 @@
 .position-relative:hover .overlay {
     opacity: 1;
 }
+
+/** hero image **/
+.heroimage-container {
+    z-index: -1;
+}
