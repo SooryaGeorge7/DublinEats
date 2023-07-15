@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
+from django.core.paginator import Paginator
 
 GOOGLE_PLACES_API_KEY = os.environ.get("GOOGLE_PLACES_API_KEY")
 
@@ -60,8 +61,12 @@ def restaurants(request, category):
     results = restaurant_data.get("results", [])
     print("RESPONSE: ", response)
     print("RESTAURANT_DATA:", restaurant_data)
+    paginator = Paginator(results, 10)  # Show 10 restaurants per page
 
-    for result in results:
+    page_number = request.GET.get("page")
+    page_object = paginator.get_page(page_number)
+
+    for result in page_object:
             
             place_id = result.get("place_id")
             if place_id:
@@ -89,6 +94,7 @@ def restaurants(request, category):
                 "image_urls" : image_urls,
                 "website_url": website_url,
                 "place_id": place_id,
+                
             })
 
             try:
@@ -101,7 +107,10 @@ def restaurants(request, category):
                     RestaurantId = place_id,
                 )            
                 restaurant_details.save()
-    return render(request, 'restaurants/categories.html', {"restaurants":restaurants})
+    return render(request, 'restaurants/categories.html', {
+        "restaurants":restaurants,
+        "page_object": page_object,
+        })
                 
 def to_visit(request, restaurant_id):
     
