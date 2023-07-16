@@ -59,9 +59,8 @@ def restaurants(request, category):
     response = requests.get(url)
     restaurant_data = response.json()
     results = restaurant_data.get("results", [])
-    print("RESPONSE: ", response)
-    print("RESTAURANT_DATA:", restaurant_data)
-    paginator = Paginator(results, 10)  # Show 10 restaurants per page
+    
+    paginator = Paginator(results, 8)  
 
     page_number = request.GET.get("page")
     page_object = paginator.get_page(page_number)
@@ -110,6 +109,7 @@ def restaurants(request, category):
     return render(request, 'restaurants/categories.html', {
         "restaurants":restaurants,
         "page_object": page_object,
+        
         })
                 
 def to_visit(request, restaurant_id):

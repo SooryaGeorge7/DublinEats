@@ -3,11 +3,11 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Restaurant(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=300)
     website = models.URLField(blank=True)
     address = models.TextField()
     RestaurantId = models.CharField(
-        max_length=50, null=True, blank=True, unique=True
+        max_length=300, null=True, blank=True, unique=True
     )
 
     def __str__(self):
