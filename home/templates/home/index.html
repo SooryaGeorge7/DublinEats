@@ -10,7 +10,8 @@
                 <div class="position-absolute top-50  translate-middle search-container" >
                     
                     <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query"
+                        value="{{ request.GET.query }}" >
                         <button class="btn btn-outline-success button-dbneats" type="submit">Search</button>
                     </form>
                 </div>
