@@ -96,3 +96,10 @@
 .heroimage-container {
     z-index: -1;
 }
+
+/**search function**/
+
+.search-container {
+    z-index: 1;
+    left: 25%;
+}
