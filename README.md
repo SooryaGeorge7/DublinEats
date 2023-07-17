@@ -160,12 +160,17 @@ The must-have user stories were prioritized first. Certain other user stories we
 
 ### **Frameworks and Tools Used**
 
-1. ## [Django](https://www.djangoproject.com/)
-1. ## ## [Bootstrap](https://blog.getbootstrap.co# [ElephantSQL](https://www.elephantsql.com/)
-1. ## ## [Cloudinary](https://cloudinary.com/)
-1. ## ## [GitHub:](https://github.com/)
-1. ## ## [Balsamiq](https://balsa# [Stackoverflow](https://stackoverflow.com/)
-1. ## ## [CI Python Linter](https://pep8ci.herokuapp.com/)
+1. [Django](https://www.djangoproject.com/)
+2. [Bootstrap5](https://blog.getbootstrap.co#) 
+3. [ElephantSQL](https://www.elephantsql.com/)
+4. [Cloudinary](https://cloudinary.com/)
+5. [GitHub:](https://github.com/)
+6. [Balsamiq](https://balsa#)
+7. [Stackoverflow](https://stackoverflow.com/)
+7. [CI Python Linter](https://pep8ci.herokuapp.com/)
+8. [Birme](https://www.birme.net/)
+9. [Real Favicon Generator](https://realfavicongenerator.net/)
+10. [FreePik](http://www.freepik.com/)
 
 ## ### **Libraries Used**
 ## **Testing**
