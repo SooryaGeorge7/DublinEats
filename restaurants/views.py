@@ -59,9 +59,8 @@ def restaurants(request, category):
     response = requests.get(url)
     restaurant_data = response.json()
     results = restaurant_data.get("results", [])
-    
+    # print(results)    
     paginator = Paginator(results, 8)  
-
     page_number = request.GET.get("page")
     page_object = paginator.get_page(page_number)
 
@@ -105,7 +104,9 @@ def restaurants(request, category):
                     address = result["formatted_address"],
                     RestaurantId = place_id,
                 )            
+                print(restaurant_details)
                 restaurant_details.save()
+    print(restaurants)
     return render(request, 'restaurants/categories.html', {
         "restaurants":restaurants,
         "page_object": page_object,
