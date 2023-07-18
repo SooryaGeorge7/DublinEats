@@ -1,1 +1,92 @@
+{% extends "base.html" %}
 
+{% block content %}
+<section >
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 pb-5">
+            {% if restaurant_results %}
+            {% for restaurant in restaurant_results %}
+            
+            <div class="col">
+                <div class="card h-100">
+                    <div id="carousel-{{ forloop.counter }}" class="carousel slide" >
+                        <div class="carousel-inner">
+                            {% for image_url in restaurant.image_urls %}
+                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                <img src="{{ image_url }}" height="280" class="d-block w-100" alt="Image for {{ restaurant.name }}">
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-{{ forloop.counter }}"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel-{{ forloop.counter }}"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">{{ restaurant.name }}</h3>
+                        <p class="card-text"> {{ restaurant.address }}</p>
+                        <a href="{{ restaurant.website_url }}" class="btn btn-primary"> website</a>
+                        <a href="{% url 'to_visit' restaurant.place_id %}" class="btn btn-secondary position-absolute top-0 end-0"
+                        target="_blank" rel="noopener" aria-label="Pin this restaurant"><i class="bi bi-pin-angle-fill"></i></a>
+                        <a href="{% url 'review' restaurant.place_id %}" class="btn btn-secondary position-absolute top-0 start-0"
+                        target="_blank" rel="noopener" aria-label="Rate this restaurant">Rate <i class="bi bi-star-fill"></i></a>
+                        <a href="{% url 'allreviews' restaurant.place_id %}" class="btn btn-primary">
+                            All Reviews <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            
+            {% endfor %}
+        </div>
+        
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <nav aria-label="Restaurants pagination">
+                    <ul class="pagination justify-content-center">
+                        {% if page_object.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_object.previous_page_number }}">Previous</a>
+                        </li>
+                        {% endif %}
+                        {% for num in page_object.paginator.page_range %}
+                        {% if num == page_object.number %}
+                        <li class="page-item active" aria-current="page">
+                            <span class="page-link">{{ num }}</span>
+                        </li>
+                        {% else %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                        {% if page_object.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_object.next_page_number }}">Next</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+            {% else %}
+            <div class="col-12 text-dark text-center">
+                <h2 class="text-dark my-5">There are no results for {{ query }}.
+                </h2>
+                <a class="btn" href="{% url 'dublineats-home' %}">Home</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    
+
+</section>
+{% endblock%}
