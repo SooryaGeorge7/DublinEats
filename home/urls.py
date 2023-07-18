@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='dublineats-home'),
+    path('search/', views.searchresults, name='searchresults'),
 ]
