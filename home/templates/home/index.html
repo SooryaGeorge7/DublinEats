@@ -8,7 +8,9 @@
                 <img src="https://res.cloudinary.com/dif9bjzee/image/upload/v1689373355/fast-food-meal-with-copy-space_wlqwwx.webp"
                     class="img-fluid w-100 vh-100" alt="DublinEats Hero Image">
                 <div class="position-absolute top-50  translate-middle search-container" >
-                    
+                    <h3>Dublin Eats</h3>
+                    <p>Are you a foodie? Looking for good restaurants in Dublin?</p>
+                    <p>Search for what you are looking for here! </p>
                     <form class="d-flex" action="{% url 'searchresults' %}" method="GET">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query"
                         value="{{ request.GET.query }}" >
