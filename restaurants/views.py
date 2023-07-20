@@ -54,7 +54,7 @@ def restaurants(request, category):
         )
     else:
         pass
-
+    user = request.user
     restaurants = []
     response = requests.get(url)
     restaurant_data = response.json()
@@ -63,7 +63,7 @@ def restaurants(request, category):
     paginator = Paginator(results, 8)  
     page_number = request.GET.get("page")
     page_object = paginator.get_page(page_number)
-
+    
     for result in page_object:
             
             place_id = result.get("place_id")
@@ -84,18 +84,6 @@ def restaurants(request, category):
             else:
                 website_url = ""
 
-            restaurants.append({
-                "name": result["name"],
-                "category": category,
-                "address": result["formatted_address"],
-                "latitude": result["geometry"]["location"]["lat"],
-                "longitude": result["geometry"]["location"]["lng"],
-                "image_urls" : image_urls,
-                "website_url": website_url,
-                "place_id": place_id,
-                
-            })
-
             try:
                 restaurant_details = Restaurant.objects.get(RestaurantId=place_id)
             except Restaurant.DoesNotExist:
@@ -107,7 +95,29 @@ def restaurants(request, category):
                 )            
                 print(restaurant_details)
                 restaurant_details.save()
-    print(restaurants)
+            
+            user_review = Review.objects.filter(restaurant=restaurant_details, user=user)
+            # print(user_review)
+            if user_review.exists():
+                user_reviewed = True
+            else:
+                user_reviewed = False
+
+            restaurants.append({
+                "name": result["name"],
+                "category": category,
+                "address": result["formatted_address"],
+                "latitude": result["geometry"]["location"]["lat"],
+                "longitude": result["geometry"]["location"]["lng"],
+                "image_urls" : image_urls,
+                "user_reviewed": user_reviewed,
+                "website_url": website_url,
+                "place_id": place_id,
+                
+            })
+
+            
+    # print(restaurants)
     return render(request, 'restaurants/categories.html', {
         "restaurants":restaurants,
         "page_object": page_object,

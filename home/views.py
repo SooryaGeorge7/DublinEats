@@ -32,7 +32,7 @@ def searchresults(request):
     url = ( 
         f"https://maps.googleapis.com/maps/api/place/textsearch/json?query={query}&type=restaurant&location=53.350140,-6.266155&key={GOOGLE_PLACES_API_KEY}"
     )
-
+    user = request.user
     restaurant_results = []
     response = requests.get(url)
     restaurant_data = response.json()
@@ -62,17 +62,6 @@ def searchresults(request):
             else:
                 website_url = ""
 
-            restaurant_results.append({
-                "name": result["name"],
-                "address": result["formatted_address"],
-                "latitude": result["geometry"]["location"]["lat"],
-                "longitude": result["geometry"]["location"]["lng"],
-                "image_urls" : image_urls,
-                "website_url": website_url,
-                "place_id": place_id,
-                
-            })
-
             try:
                 restaurant_details = Restaurant.objects.get(RestaurantId=place_id)
             except Restaurant.DoesNotExist:
@@ -84,6 +73,28 @@ def searchresults(request):
                 )            
                 print(restaurant_details)
                 restaurant_details.save()
+            
+            user_review = Review.objects.filter(restaurant=restaurant_details, user=user)
+            # print(user_review)
+            if user_review.exists():
+                user_reviewed = True
+            else:
+                user_reviewed = False
+
+
+            restaurant_results.append({
+                "name": result["name"],
+                "address": result["formatted_address"],
+                "latitude": result["geometry"]["location"]["lat"],
+                "longitude": result["geometry"]["location"]["lng"],
+                "image_urls" : image_urls,
+                "user_reviewed" : user_reviewed,
+                "website_url": website_url,
+                "place_id": place_id,
+                
+            })
+
+            
     return render(request, 'home/results.html', {
         "restaurant_results":restaurant_results,
         "page_object": page_object,
