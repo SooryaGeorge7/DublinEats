@@ -63,7 +63,7 @@ Dublin Eats websites intends to allow  foodies of Dublin or tourists to discover
 - To provide users with the ability to view other users reviews/ratings.
 - To provide users with the ability to pin / favourite the restaurants they want to go to.
 
-## **Agile Planning**
+### **Agile Planning**
 
 1.	User stories are implemented which identifies the necessary features and functions of the website.
 2.	Prioritzie User stories from high importance to least important. This is done using labels such as “must-haves”, “should-haves”, “could-haves”

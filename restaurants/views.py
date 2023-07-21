@@ -97,12 +97,19 @@ def restaurants(request, category):
                 restaurant_details.save()
             
             user_review = Review.objects.filter(restaurant=restaurant_details, user=user)
+            profile = Profile.objects.get(user=user)
             # print(user_review)
+            if profile.pinned_restaurants.filter(RestaurantId=place_id).exists():
+                pinned = True
+            else:
+                pinned = False
+                
             if user_review.exists():
                 user_reviewed = True
             else:
                 user_reviewed = False
 
+            
             restaurants.append({
                 "name": result["name"],
                 "category": category,
@@ -111,6 +118,7 @@ def restaurants(request, category):
                 "longitude": result["geometry"]["location"]["lng"],
                 "image_urls" : image_urls,
                 "user_reviewed": user_reviewed,
+                "pinned":pinned,
                 "website_url": website_url,
                 "place_id": place_id,
                 
