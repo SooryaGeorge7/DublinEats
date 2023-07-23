@@ -87,3 +87,5 @@ class UserUpdateFormTest(TestCase):
         self.assertFalse(form.is_valid())
         self.assertIn("username", form.errors.keys())
         self.assertEqual(form.errors["username"][0], "This field is required.")
+
+    

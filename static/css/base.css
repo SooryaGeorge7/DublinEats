@@ -104,3 +104,11 @@
     left: 25%;
 }
 
+.user-done {
+    
+    background-color: var(--secondary-color);
+}
+
+.pinned {
+    background-color: #E74c3c;
+}
