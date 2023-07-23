@@ -75,7 +75,7 @@ def delete_profile(request, username):
         messages.success(
             request, f"Your account has been deleted { user.username }"
         )
-        return redirect("home")
+        return redirect("dublineats-home")
 
     context = {"username": username}
     return render(request, "users/edit_profile.html", context)
