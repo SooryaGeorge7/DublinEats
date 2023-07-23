@@ -16,25 +16,33 @@
                 {{ profile_form|crispy }}
             </div>
             <button class="btn btn-outline-info button-dbneats" type="submit"> Update </button>
-            <button class="btn btn-outline-info button-dbneats" type="button"> Delete</button>
+            <button type="button" class="btn btn-outline-info button-dbneats" data-bs-toggle="modal" data-bs-target="#deleteProfileModal">
+                Delete Profile
+              </button>
         </form>
     </div>
 </div>
-<div class="d-flex justify-content-center align-items-center">
-    {% if user.is_authenticated and user == profile.user %}
-    <form method="POST" class="reviewform text-center" action="{% url 'deleteprofile' user.username %}"
-        role="form">
-        {% csrf_token %}
-        <h2 class="mb-3 text-dark"><span>Delete</span> Profile
-        </h2>
-        <p><i>
-            <span>{{ profile.user }}</span> Are you sure you want to delete your profile?
-        </i></p>
-        <p>Once deleted, you will have to sign up again</p>
-        <button type="submit" name="action" value="delete" class="site-btn">Delete</button>
-    </form>
-    {% else %}
-    <h3>You are not authorized to delete this profile.</h3>
-    {% endif %}
+<div class="container">
+    <div class="modal fade" id="deleteProfileModal" tabindex="-1" aria-labelledby="deleteProfileModalLabel"
+    aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            {% if user.is_authenticated and user == profile.user %}
+            <form method="POST" class="reviewform text-center" action="{% url 'deleteprofile' user.username %}"
+                 role="form">
+                {% csrf_token %}
+                <h2 class="mb-3 text-dark"><span>Delete</span> Profile</h2>
+                <p><i>
+                    <span>{{ profile.user }}</span> Are you sure you want to delete your profile?
+                </i></p>
+                <p>Once deleted, you will have to sign up again</p>
+                <button type="submit" name="action" value="delete" class="site-btn">Delete</button>
+            </form>
+            {% else %}
+            <h3>You are not authorized to delete this profile.</h3>
+            {% endif %}
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock content %}

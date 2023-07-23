@@ -70,8 +70,10 @@
         </div>  
 
         <!-- Submit Button -->
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <button type="button" class="btn btn-primary">Delete</button>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="button" class="btn btn-outline-info button-dbneats" data-bs-toggle="modal" data-bs-target="#deleteProfileModal">
+            Delete
+        </button>
     </form>
     {% block extra_js %}
             <!-- Customizible JS -->
@@ -80,6 +82,11 @@
 
 </section>
 <section class="d-flex justify-content-center align-items-center">
+    <div class="container">
+        <div class="modal fade" id="deleteProfileModal" tabindex="-1" aria-labelledby="deleteProfileModalLabel"
+        aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
                     {% if user.is_authenticated and user == review.user %}
                     <form method="POST" class="reviewform text-center" action="{% url 'delete_review' review.restaurant.RestaurantId review.id %}"
                         role="form">
@@ -95,7 +102,9 @@
                     {% else %}
                     <h3>You are not authorized to delete this review.</h3>
                     {% endif %}
-         
-    
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 {% endblock %}
