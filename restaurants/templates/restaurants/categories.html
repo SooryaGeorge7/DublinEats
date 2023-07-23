@@ -41,7 +41,7 @@
                         {% endif %}
                         {% if restaurant.user_reviewed == True %}
                         <button  class="btn btn-secondary user-done position-absolute top-0 start-0 "
-                        target="_blank" rel="noopener" aria-label="Rate this restaurant">Rated <i class="bi bi-star-fill"></i></button>
+                        target="_blank" rel="noopener" aria-label="Rate this restaurant">Rate <i class="bi bi-star-fill"></i></button>
                         {% else %}
                         <a href="{% url 'review' restaurant.place_id %}" class="btn btn-secondary position-absolute top-0 start-0"
                         target="_blank" rel="noopener" aria-label="Rate this restaurant">Rate <i class="bi bi-star-fill"></i></a>
