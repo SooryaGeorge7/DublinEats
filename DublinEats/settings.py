@@ -172,4 +172,3 @@ else:
     EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASS")
     DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_USER")
 
-
