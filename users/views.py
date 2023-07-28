@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from .models import Profile
 from .forms import UserSignupForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth import logout
+
 # Create your views here.
 
 
