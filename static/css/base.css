@@ -105,10 +105,13 @@
 }
 
 .user-done {
-    
+    color: var(--light-color);
     background-color: var(--secondary-color);
+    pointer-events: none;
 }
+
 
 .pinned {
     background-color: #E74c3c;
+    
 }

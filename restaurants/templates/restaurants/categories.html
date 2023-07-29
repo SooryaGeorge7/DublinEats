@@ -37,11 +37,11 @@
                         target="_blank" rel="noopener" aria-label="Pin this restaurant"><i class="bi bi-pin-angle-fill"></i></a>
                         {% else %}
                         <a href="{% url 'to_visit' restaurant.place_id %}" class="btn btn-secondary pinned position-absolute top-0 end-5 "
-                        target="_blank" rel="noopener" aria-label="Pin this restaurant"><i class="bi bi-pin-angle-fill"></i></a>
+                        target="_blank" rel="noopener" aria-label="Pin this restaurant" data-bs-toggle="tooltip" data-bs-placement="top" title="Unpin"><i class="bi bi-pin-angle-fill"></i></a>
                         {% endif %}
                         {% if restaurant.user_reviewed == True %}
                         <button  class="btn btn-secondary user-done position-absolute top-0 start-0 "
-                        target="_blank" rel="noopener" aria-label="Rate this restaurant">Rate <i class="bi bi-star-fill"></i></button>
+                        target="_blank" rel="noopener" aria-label="Rate this restaurant" >Rated <i class="bi bi-star-fill"></i></button>
                         {% else %}
                         <a href="{% url 'review' restaurant.place_id %}" class="btn btn-secondary position-absolute top-0 start-0"
                         target="_blank" rel="noopener" aria-label="Rate this restaurant">Rate <i class="bi bi-star-fill"></i></a>
