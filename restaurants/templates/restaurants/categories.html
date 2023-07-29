@@ -17,12 +17,12 @@
                             </div>
                             {% endfor %}
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-{{ forloop.counter }}"
+                        <button class="carousel-control-prev " type="button" data-bs-target="#carousel-{{ forloop.counter }}"
                             data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carousel-{{ forloop.counter }}"
+                        <button class="carousel-control-next " type="button" data-bs-target="#carousel-{{ forloop.counter }}"
                             data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
@@ -33,10 +33,10 @@
                         <p class="card-text"> {{ restaurant.address }}</p>
                         <a href="{{ restaurant.website_url }}" class="btn btn-primary"> website</a>
                         {% if restaurant.pinned == False %}
-                        <a href="{% url 'to_visit' restaurant.place_id %}" class="btn btn-secondary position-absolute top-0 end-5"
+                        <a href="{% url 'to_visit' restaurant.place_id %}" class="btn btn-secondary position-absolute top-0 end-0"
                         target="_blank" rel="noopener" aria-label="Pin this restaurant"><i class="bi bi-pin-angle-fill"></i></a>
                         {% else %}
-                        <a href="{% url 'to_visit' restaurant.place_id %}" class="btn btn-secondary pinned position-absolute top-0 end-5 "
+                        <a href="{% url 'to_visit' restaurant.place_id %}" class="btn btn-secondary pinned position-absolute top-0 end-0 "
                         target="_blank" rel="noopener" aria-label="Pin this restaurant" data-bs-toggle="tooltip" data-bs-placement="top" title="Unpin"><i class="bi bi-pin-angle-fill"></i></a>
                         {% endif %}
                         {% if restaurant.user_reviewed == True %}

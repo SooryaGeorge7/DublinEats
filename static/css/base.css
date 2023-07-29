@@ -115,3 +115,10 @@
     background-color: #E74c3c;
     
 }
+
+/**Carousal controls **/
+.carousel-control-prev,
+.carousel-control-next {
+    height: 80%;
+    top:20%;
+}
