@@ -64,6 +64,7 @@ def allreviews(request, restaurant_id):
     reviews = Review.objects.filter(restaurant=restaurant)
     context = {
         "reviews": reviews,
+        "restaurant":restaurant,
     }
 
     return render(request, "review/allreviews.html", context)
