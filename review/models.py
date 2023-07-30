@@ -20,19 +20,13 @@ class Review(models.Model):
         auto_now_add=True,
         null=True,
     )
-    Rating = (
-        (1, '1'),
-        (2, '2'),
-        (3, '3'),
-        (4, '4'),
-        (5, '5')
-    )
+    
 
-    taste = models.IntegerField(choices=Rating, default=0)
-    ambience = models.IntegerField(choices=Rating, default=0)
-    customer_service = models.IntegerField(choices=Rating, default=0)
-    location = models.IntegerField(choices=Rating, default=0)
-    value_for_money = models.IntegerField(choices=Rating, default=0)
+    taste = models.IntegerField( default=0)
+    ambience = models.IntegerField( default=0)
+    customer_service = models.IntegerField( default=0)
+    location = models.IntegerField( default=0)
+    value_for_money = models.IntegerField( default=0)
     comment_text = models.TextField(null=False,
         blank=False,
         default="Type in a review here...",)
