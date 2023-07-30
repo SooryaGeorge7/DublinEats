@@ -90,6 +90,7 @@ def restaurants(request, category):
                 restaurant_details = Restaurant(
                     name = result["name"],
                     website = website_url,
+                    category = category,
                     address = result["formatted_address"],
                     RestaurantId = place_id,
                 )            
@@ -151,7 +152,10 @@ def to_visit(request, restaurant_id):
             request,
             f"{user.username} you have added {restaurant} to your profile",
         )
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+    category_url = reverse('{}'.format(restaurant.category))
+    return redirect(category_url)
+    
 
 def remove_pin(request, restaurant_id):
     restaurant = get_object_or_404(Restaurant, RestaurantId=restaurant_id)

@@ -6,6 +6,7 @@ class Restaurant(models.Model):
     name = models.TextField()
     website = models.URLField(blank=True,max_length=500)
     address = models.TextField()
+    category = models.TextField(default="None")
     RestaurantId = models.CharField(
         max_length=300, null=True, blank=True, unique=True
     )
