@@ -19,7 +19,10 @@
                                 <div class="d-flex flex-column">
                                     <p class="text-end">{{ review.created_on }}</p>
                                     <p class="text-end"><span>Review by:
-                                        </span>{{ review.user.username }}</a>
+                                        <!-- </span>{{ review.user.username }}</a> -->
+                                    </span><a href="{% url 'profile' review.user.username %}"
+                                    aria-label="{{review.user.profile.user.username }} Profile Page"
+                                    class="text-dark">{{ review.user.username }}</a>
                                     </p>
                                 </div>
                             </div>

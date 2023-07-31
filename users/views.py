@@ -23,13 +23,13 @@ def signup(request):
     return render(request, 'users/signup.html', {'form': form})
 
 @login_required()
-def profile(request):
+def profile(request, username):
     """
     Renders the users profile, checks that the user matches profile user
     """
     # user = get_object_or_404(User, username=username)
-
-    profile = Profile.objects.get(user=request.user)
+    user = get_object_or_404(User, username=username)
+    profile = Profile.objects.get(user=user)
 
     context = {
         "profile": profile,
