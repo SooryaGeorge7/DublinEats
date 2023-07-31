@@ -14,48 +14,87 @@
                 <div class="rating taste">{{rating_form.taste}}
                     <!-- Taste Rating -->
                     <h4>Taste</h4>
+                    {% if user_reviewed == True  %}
+                    <button type="button" class="btn {% if review.taste >= 1 %}checked{% endif %}"><i class="bi bi-star" id="first"></i></button>
+                    <button type="button" class="btn {% if review.taste >= 2 %}checked{% endif %}"><i class="bi bi-star" id="second"></i></button>
+                    <button type="button" class="btn {% if review.taste >= 3 %}checked{% endif %}"><i class="bi bi-star" id="third"></i></button>
+                    <button type="button" class="btn {% if review.taste >= 4 %}checked{% endif %}"><i class="bi bi-star" id="fourth"></i></button>
+                    <button type="button" class="btn {% if review.taste == 5 %}checked{% endif %}"><i class="bi bi-star" id="fifth"></i></button>
+                    {% else %}
                     <button type="button" class="btn"><i class="bi bi-star" id="first"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="second"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="third"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="fourth"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="fifth"></i></button>
+                    {% endif %}
                 </div>
                 <div class="rating ambience">{{rating_form.ambience}}
                     <!-- Taste Rating -->
                     <h4>Ambience</h4>
+                    {% if user_reviewed == True  %}
+                    <button type="button" class="btn {% if review.ambience >= 1 %}checked{% endif %}"><i class="bi bi-star" id="first"></i></button>
+                    <button type="button" class="btn {% if review.ambience >= 2 %}checked{% endif %}"><i class="bi bi-star" id="second"></i></button>
+                    <button type="button" class="btn {% if review.ambience >= 3 %}checked{% endif %}"><i class="bi bi-star" id="third"></i></button>
+                    <button type="button" class="btn {% if review.ambience >= 4 %}checked{% endif %}"><i class="bi bi-star" id="fourth"></i></button>
+                    <button type="button" class="btn {% if review.ambience == 5 %}checked{% endif %}"><i class="bi bi-star" id="fifth"></i></button>
+                    {% else %}
                     <button type="button" class="btn"><i class="bi bi-star" id="first"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="second"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="third"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="fourth"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="fifth"></i></button>
+                    {% endif %}
                 </div>
                 <div class="rating customer_service">{{rating_form.customer_service}}
                     <!-- Taste Rating -->
                     <h4>Customer Service</h4>
+                    {% if user_reviewed == True  %}
+                    <button type="button" class="btn {% if review.customer_service >= 1 %}checked{% endif %}"><i class="bi bi-star" id="first"></i></button>
+                    <button type="button" class="btn {% if review.customer_service >= 2 %}checked{% endif %}"><i class="bi bi-star" id="second"></i></button>
+                    <button type="button" class="btn {% if review.customer_service >= 3 %}checked{% endif %}"><i class="bi bi-star" id="third"></i></button>
+                    <button type="button" class="btn {% if review.customer_service >= 4 %}checked{% endif %}"><i class="bi bi-star" id="fourth"></i></button>
+                    <button type="button" class="btn {% if review.customer_service == 5 %}checked{% endif %}"><i class="bi bi-star" id="fifth"></i></button>
+                    {% else %}
                     <button type="button" class="btn"><i class="bi bi-star" id="first"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="second"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="third"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="fourth"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="fifth"></i></button>
+                    {% endif %}
                 </div>
                 <div class="rating location">{{rating_form.location}}
                     <!-- Taste Rating -->
                     <h4>Location</h4>
+                    {% if user_reviewed == True  %}
+                    <button type="button" class="btn {% if review.location >= 1 %}checked{% endif %}"><i class="bi bi-star" id="first"></i></button>
+                    <button type="button" class="btn {% if review.location >= 2 %}checked{% endif %}"><i class="bi bi-star" id="second"></i></button>
+                    <button type="button" class="btn {% if review.location >= 3 %}checked{% endif %}"><i class="bi bi-star" id="third"></i></button>
+                    <button type="button" class="btn {% if review.location >= 4 %}checked{% endif %}"><i class="bi bi-star" id="fourth"></i></button>
+                    <button type="button" class="btn {% if review.location == 5 %}checked{% endif %}"><i class="bi bi-star" id="fifth"></i></button>
+                    {% else %}
                     <button type="button" class="btn"><i class="bi bi-star" id="first"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="second"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="third"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="fourth"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="fifth"></i></button>
+                    {% endif %}
                 </div>
                 <div class="rating value_for_money">{{rating_form.value_for_money}}
                     <!-- Taste Rating -->
                     <h4>Value for Money</h4>
+                    {% if user_reviewed == True  %}
+                    <button type="button" class="btn {% if review.value_for_money >= 1 %}checked{% endif %}"><i class="bi bi-star" id="first"></i></button>
+                    <button type="button" class="btn {% if review.value_for_money >= 2 %}checked{% endif %}"><i class="bi bi-star" id="second"></i></button>
+                    <button type="button" class="btn {% if review.value_for_money >= 3 %}checked{% endif %}"><i class="bi bi-star" id="third"></i></button>
+                    <button type="button" class="btn {% if review.value_for_money >= 4 %}checked{% endif %}"><i class="bi bi-star" id="fourth"></i></button>
+                    <button type="button" class="btn {% if review.value_for_money == 5 %}checked{% endif %}"><i class="bi bi-star" id="fifth"></i></button>
+                    {% else %}
                     <button type="button" class="btn"><i class="bi bi-star" id="first"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="second"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="third"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="fourth"></i></button>
                     <button type="button" class="btn"><i class="bi bi-star" id="fifth"></i></button>
-                    
+                    {% endif %}
                 </div>
             </div>
         </div>
