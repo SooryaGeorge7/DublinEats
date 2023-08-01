@@ -118,12 +118,12 @@ def delete_review(request, restaurant_id, review_id):
     restaurant = get_object_or_404(Restaurant, RestaurantId=restaurant_id)
     review = get_object_or_404(Review, id=review_id)
     user = request.user
-
+    username = user.username
     if review.user != user:
         messages.error(
             request, "You are not authorized to delete this review."
         )
-        return redirect("profile")
+        return redirect("profile", args=[username])
 
     profile = Profile.objects.get(user=user)
     if review.restaurant in profile.reviewed.all():
@@ -131,5 +131,5 @@ def delete_review(request, restaurant_id, review_id):
 
     review.delete()
     messages.success(request, f"Your review has been deleted {user.username} ")
-
-    return redirect("profile")
+    return redirect(reverse("profile", args=[username]))
+    # return redirect("profile")
