@@ -25,6 +25,7 @@ def get_details(place_id):
     detail_data = response.json()
     return detail_data.get("result", {})
 
+
 def searchresults(request):
     
     query = request.GET.get("query")
@@ -74,13 +75,19 @@ def searchresults(request):
                 print(restaurant_details)
                 restaurant_details.save()
             
-            user_review = Review.objects.filter(restaurant=restaurant_details, user=user)
-            # print(user_review)
-            if user_review.exists():
-                user_reviewed = True
-            else:
-                user_reviewed = False
-
+            # user_review = Review.objects.filter(restaurant=restaurant_details, user=user)
+            
+            # if user_review.exists():
+            #     user_reviewed = True
+            # else:
+            #     user_reviewed = False
+            
+            user_reviewed = False  # Initialize the user_reviewed variable to False
+            if request.user.is_authenticated:
+                  # If the user is signed in, check if they have reviewed the restaurant
+                user_review = Review.objects.filter(restaurant=restaurant_details, user=user)
+                if user_review.exists():
+                    user_reviewed = True
 
             restaurant_results.append({
                 "name": result["name"],
