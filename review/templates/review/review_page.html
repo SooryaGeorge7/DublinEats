@@ -85,6 +85,7 @@
         <button type="button" class="btn btn-outline-info button-dbneats" data-bs-toggle="modal" data-bs-target="#deleteProfileModal">
             Delete
         </button>
+        <a type="button" href="{% url 'allreviews' restaurant.RestaurantId %}" class="btn btn-primary">Exit</a>
         {% else %}
         <button type="submit" class="btn btn-primary">Submit</button>
         <a type="button" href="{% url restaurant.category %}" class="btn btn-primary">Exit</a>
