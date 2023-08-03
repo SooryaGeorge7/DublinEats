@@ -9,7 +9,7 @@
             
             <div class="col">
                 <div class="card h-100">
-                    <div id="carousel-{{ forloop.counter }}" class="carousel slide" >
+                    <div id="carousel-{{ forloop.counter }}" class="carousel slide" data-bs-interval="false" >
                         <div class="carousel-inner">
                             {% for image_url in restaurant.image_urls %}
                             <div class="carousel-item {% if forloop.first %}active{% endif %}">
