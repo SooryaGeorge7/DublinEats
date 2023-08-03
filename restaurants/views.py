@@ -141,10 +141,9 @@ def restaurants(request, category):
         "page_object": page_object,
         
         })
-                
+
+@login_required
 def to_visit(request, restaurant_id):
-    
-    
     restaurant = get_object_or_404(Restaurant, RestaurantId=restaurant_id)
     user = request.user
     profile = Profile.objects.get(user=user)
@@ -180,6 +179,7 @@ def remove_pin(request, restaurant_id):
         )
 
     return redirect("profile")
+
 
 def profile_reviews(request, restaurant_id):
     

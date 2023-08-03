@@ -81,13 +81,16 @@ def searchresults(request):
             #     user_reviewed = True
             # else:
             #     user_reviewed = False
-            
+            pinned = False
             user_reviewed = False  # Initialize the user_reviewed variable to False
             if request.user.is_authenticated:
                   # If the user is signed in, check if they have reviewed the restaurant
                 user_review = Review.objects.filter(restaurant=restaurant_details, user=user)
+                profile = Profile.objects.get(user=user)
                 if user_review.exists():
                     user_reviewed = True
+                if profile.pinned_restaurants.filter(RestaurantId=place_id).exists():
+                    pinned = True
 
             restaurant_results.append({
                 "name": result["name"],
@@ -95,6 +98,7 @@ def searchresults(request):
                 "latitude": result["geometry"]["location"]["lat"],
                 "longitude": result["geometry"]["location"]["lng"],
                 "image_urls" : image_urls,
+                "pinned": pinned,
                 "user_reviewed" : user_reviewed,
                 "website_url": website_url,
                 "place_id": place_id,
