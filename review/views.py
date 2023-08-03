@@ -37,7 +37,7 @@ def review(request, restaurant_id):
             messages.success(
                 request, f"{user.username} you have reviewed {restaurant}"
             )
-            return redirect("dublineats-home")
+            return redirect(reverse("allreviews", kwargs={'restaurant_id': restaurant_id}))
         else:
             # error_message = rating_form.errors.as_text()
             # messages.error(request, f"Error: {error_message}")
@@ -123,13 +123,13 @@ def delete_review(request, restaurant_id, review_id):
         messages.error(
             request, "You are not authorized to delete this review."
         )
-        return redirect("profile", args=[username])
+        return redirect(reverse(f'{restaurant.category}'))
 
     profile = Profile.objects.get(user=user)
     if review.restaurant in profile.reviewed.all():
         profile.reviewed.remove(review.restaurant)
 
     review.delete()
-    messages.success(request, f"Your review has been deleted {user.username} ")
-    return redirect(reverse("profile", args=[username]))
+    messages.success(request, f"Your review for {restaurant} has been deleted {user.username} ")
+    return redirect(reverse(f'{restaurant.category}'))
     # return redirect("profile")

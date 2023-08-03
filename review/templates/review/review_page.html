@@ -79,11 +79,17 @@
         </div>  
 
         <!-- Submit Button -->
+        
+        {% if user_reviewed == True %}
         <button type="submit" class="btn btn-primary">Update</button>
         <button type="button" class="btn btn-outline-info button-dbneats" data-bs-toggle="modal" data-bs-target="#deleteProfileModal">
             Delete
         </button>
+        {% else %}
+        <button type="submit" class="btn btn-primary">Submit</button>
         <a type="button" href="{% url restaurant.category %}" class="btn btn-primary">Exit</a>
+        {% endif %}
+        
     </form>
     {% block extra_js %}
             <!-- Customizible JS -->
