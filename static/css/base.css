@@ -32,7 +32,7 @@
     font-size: 2rem;
     padding-bottom: 0rem;
     padding-left: 3rem;
-    width: 20rem;
+    
     /* Adjust the width and height according to your image size */
     height: 3rem;
     background-image: url('../logo/logoimage.webp');
@@ -69,7 +69,7 @@
     border-color: var(--light-color)!important;
 }
 .footer {
-    background-color: var(--primary-color);
+    background-color: var(--bg-color);
     width: 100%;
     min-height: 15vh;
     display: flex;
@@ -81,8 +81,13 @@
 
 .socials {
     margin-bottom: 0;
+    
 }
 
+.socials i {
+    color: var(--primary-color);
+
+}
 /** star rates **/
 .checked {
     color:var(--secondary-color);
@@ -112,18 +117,26 @@
     z-index: -1;
 }
 
+.hero-image {
+    width: 100%;
+    object-fit: cover;
+    
+    
+}
 /**search function**/
 
 .search-container {
     z-index: 1;
     color: var(--light-color);
-    padding: 2rem;
+    
+
 }
 
 .search-container p {
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight:bold;
 }
+
 .user-done {
     color: var(--light-color);
     background-color: var(--secondary-color);
