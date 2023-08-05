@@ -64,7 +64,7 @@
 
 .main-button:hover {
     color: var(--light-color) !important; 
-    background-color: var(--secondary-color);
+    background-color: rgba(44, 62, 80, 0.8) !important;
     
     border-color: var(--light-color)!important;
 }
@@ -116,9 +116,14 @@
 
 .search-container {
     z-index: 1;
-    left: 25%;
+    color: var(--light-color);
+    padding: 2rem;
 }
 
+.search-container p {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
 .user-done {
     color: var(--light-color);
     background-color: var(--secondary-color);

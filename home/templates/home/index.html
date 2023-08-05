@@ -5,16 +5,14 @@
     <div class="container-fluid p-0">
         <div class="row position-relative">
             <div class="col">
-                <img src="https://res.cloudinary.com/dif9bjzee/image/upload/v1689373355/fast-food-meal-with-copy-space_wlqwwx.webp"
+                <img src="https://res.cloudinary.com/dif9bjzee/image/upload/v1691242501/fav-pic-webp_nzvsrx.webp"
                     class="img-fluid w-100 vh-100" alt="DublinEats Hero Image">
-                <div class="position-absolute top-50  translate-middle search-container" >
-                    <h3>Dublin Eats</h3>
-                    <p>Are you a foodie? Looking for good restaurants in Dublin?</p>
-                    <p>Search for what you are looking for here! </p>
+                <div class="position-absolute top-50 start-50 translate-middle search-container" >
+                    <p>Looking for good restaurants in Dublin? Search here.</p>
                     <form class="d-flex" action="{% url 'searchresults' %}" method="GET">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query"
                         value="{{ request.GET.query }}" >
-                        <button class="btn btn-outline-success button-dbneats" type="submit">Search</button>
+                        <button class="btn btn-outline-success main-button" type="submit"><i class="bi bi-search"></i></button>
                     </form>
                 </div>
             </div>
