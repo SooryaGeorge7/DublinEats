@@ -58,13 +58,13 @@
 .main-button {
     margin-left: 0.5rem !important;
     color: var(--light-color) !important;
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     border-color: var(--light-color) !important;
 }
 
 .main-button:hover {
     color: var(--light-color) !important; 
-    background-color: rgba(44, 62, 80, 0.8) !important;
+    background-color: rgba(249, 191, 59, 0.8) !important;
     
     border-color: var(--light-color)!important;
 }
@@ -117,12 +117,14 @@
     z-index: -1;
 }
 
+
 .hero-image {
     width: 100%;
     object-fit: cover;
     
     
 }
+
 /**search function**/
 
 .search-container {
@@ -154,4 +156,18 @@
 .carousel-control-next {
     height: 80%;
     top:20%;
+}
+
+/**Forms**/
+
+.form-heading {
+    color: var(--primary-color);
+}
+
+.dublineat-links {
+    color: var(--primary-color);
+}
+
+.forms {
+    padding: 0.5rem;
 }

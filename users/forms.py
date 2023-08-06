@@ -6,9 +6,24 @@ from .models import Profile
 class UserSignupForm(UserCreationForm):
     email = forms.EmailField()
 
+    password1 = forms.CharField(
+        label=("Password"),
+        strip=False,
+        widget=forms.PasswordInput,
+    )
+    password2 = forms.CharField(
+        label=("Password confirmation"),
+        widget=forms.PasswordInput,
+        strip=False,
+    )
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
+        help_texts = {
+            'username': None,
+            'email': None,
+        }
+        
 
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField()
