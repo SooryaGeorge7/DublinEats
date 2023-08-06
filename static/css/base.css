@@ -76,6 +76,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: fixed;
+    bottom: 0;
 }
 
 
@@ -170,4 +172,9 @@
 
 .forms {
     padding: 0.5rem;
+    
+}
+
+.login-forms {
+    margin: 5rem;
 }
