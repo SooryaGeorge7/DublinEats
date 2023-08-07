@@ -82,9 +82,9 @@ def edit_review(request, restaurant_id, review_id):
         user_reviewed = True
     else:
         user_reviewed = False
-    if review.user != user:
+    if review.user != user and not user.is_superuser:
         messages.error(request, "You are not authorized to edit this review.")
-        return redirect(reverse("allreviews"))
+        return redirect(reverse("allreviews" , kwargs={'restaurant_id': restaurant_id}))
 
     if request.method == "POST":
         rating_form = RatingForm(request.POST, instance=review)
@@ -119,7 +119,7 @@ def delete_review(request, restaurant_id, review_id):
     review = get_object_or_404(Review, id=review_id)
     user = request.user
     username = user.username
-    if review.user != user:
+    if not user.is_superuser and review.user != user:
         messages.error(
             request, "You are not authorized to delete this review."
         )
@@ -130,6 +130,9 @@ def delete_review(request, restaurant_id, review_id):
         profile.reviewed.remove(review.restaurant)
 
     review.delete()
-    messages.success(request, f"Your review for {restaurant} has been deleted {user.username} ")
+    if user.is_superuser:
+        messages.success(request, f"{review.user}'s review for {restaurant} has been deleted ")
+    else:
+        messages.success(request, f"Your review for {restaurant} has been deleted {user.username} ")
     return redirect(reverse(f'{restaurant.category}'))
     # return redirect("profile")

@@ -104,16 +104,20 @@
         aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    {% if user.is_authenticated and user == review.user %}
+                    {% if user.is_authenticated and user == review.user or user.is_superuser%}
                     <form method="POST" class="reviewform text-center" action="{% url 'delete_review' review.restaurant.RestaurantId review.id %}"
                         role="form">
                         {% csrf_token %}
                         <h2 class="mb-3 text-dark"><span>Delete</span> Review
                         </h2>
                         <p><i>
+                            {% if user.is_superuser %}
+                            <span>{{ request.user }}</span> Are you sure you want to delete {{ review.user}}'s review and ratings?
+                            {% else %}
                             <span>{{ review.user }}</span> Are you sure you want to delete your review and ratings?
+                            {% endif %}
                         </i></p>
-                        <p>Once deleted, you will not be able to recover your review.</p>
+                        <p>Once deleted, you will not be able to recover the review.</p>
                         <button type="submit" name="action" value="delete" class="site-btn">Delete</button>
                     </form>
                     {% else %}
