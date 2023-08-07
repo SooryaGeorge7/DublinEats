@@ -24,8 +24,8 @@ class Profile(models.Model):
         default = placeholder,
         eager=[{"width": 50, "height": 50, "crop": "crop"}],
         transformation={
-            "width": 50,
-            "height": 50,
+            "width": 200,
+            "height": 200,
             "crop": "fill",
         },
         blank= True,
