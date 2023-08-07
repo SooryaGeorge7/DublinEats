@@ -178,7 +178,7 @@ def remove_pin(request, restaurant_id):
             f"{user.username} you have removed {restaurant} from your profile",
         )
 
-    return redirect("profile")
+    return redirect("profile", username=user.username)
 
 
 def profile_reviews(request, restaurant_id):

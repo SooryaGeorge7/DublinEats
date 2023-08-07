@@ -43,16 +43,34 @@
 }
 
 .button-dbneats {
-    color: var(--secondary-color) !important;
-    outline-color: var(--secondary-color);
-    border-color: var(--secondary-color);
+    color: var(--light-color) !important;
+    background-color: var(--primary-color);
+    border-color: var(--light-color);
+    border-radius: 1rem;
 }
 
 .button-dbneats:hover {
-    color: var(--light-color) !important; 
-    background-color: var(--secondary-color);
-    outline-color: var(--secondary-color);
-    border-color: var(--secondary-color);
+    color: var(--primary-color) !important; 
+    background-color: var(--light-color);
+    outline-color: var(--primary-color);
+    border-color: var(--primary-color);
+    border-radius: 1rem;
+}
+
+.remove-button {
+    color: var(--light-color);
+    background-color: #E74c3c;
+    border-color: var(--light-color);
+    border-radius: 1rem;
+}
+
+.remove-button:hover {
+    color: #E74c3c !important; 
+    background-color: var(--light-color);
+    outline-color: #E74c3c;
+    border-color: #E74c3c;
+    border-radius: 1rem;
+
 }
 
 .main-button {

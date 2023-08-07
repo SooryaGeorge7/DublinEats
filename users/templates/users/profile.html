@@ -21,53 +21,65 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-lg-4 col-md-4 text-center">
-            <p class="mb-0"><span>My Pinned Restaurants<br></span></p>
-            {% if profile.pinned_restaurants.exists %}
-            <div class="row">
-            {% for restaurant in profile.pinned_restaurants.all %}
-                <div class="col">
-                    <p class="mb-0"><a class="text-dark" href="{{ restaurant.website }}" target="_blank"
-                        aria-label="View {{ restaurant.name }} details">{{ restaurant.name }}</a>
-                        {% if request.user == profile.user %} -
-                        <span><a href="{% url 'remove_pin' restaurant.RestaurantId %}" 
-                        aria-label="Remove {{ restaurant.name }} from pinned restaurants.">Remove X</a></span>
-                        {% endif %}
-                    </p>
+        <div class=" card col-lg-4 col-md-6 text-center">
+            <div class="card-header">
+            <h3 class="form-heading">My Pinned Restaurants</h3>
+            </div>
+            <div class="card-body">
+                {% if profile.pinned_restaurants.exists %}
+                <div class="list-group">
+                {% for restaurant in profile.pinned_restaurants.all %}
+                <div class="d-flex justify-content-between align-items-center">
+                    <a class="text-dark flex-grow-1" href="{{ restaurant.website }}" target="_blank"
+                    aria-label="View {{ restaurant.name }} details">
+                    {{ restaurant.name }}</a>
+                    {% if request.user == profile.user %} 
+                    <a href="{% url 'remove_pin' restaurant.RestaurantId %}" 
+                    aria-label="Remove {{ restaurant.name }} from pinned restaurants." 
+                    class="btn btn-sm btn-primary remove-button">Remove X</a>
+                    {% endif %}
+                
                 </div>
-            {% endfor %}
+                {% endfor %}
+                </div>
             </div>
             {% else %}
             <p>You dont have any pinned restaurants</p>
             {% endif %}
         </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-lg-5 col-md-5 text-center">
-            <p class="mb-0"><span>My Reviews<br></span></p>
-            {% if profile.reviewed.exists %}
-            <div class="row">
-            {% for restaurant in profile.reviewed.all %}
-                <div class="col">
-                    <p class="mb-0"><a class="text-dark" href="{{ restaurant.website }}" target="_blank"
-                        aria-label="View {{ restaurant.name }} details">{{ restaurant.name }}</a>
-                        {% if request.user == profile.user %}
-                        <span><a href="{% url 'profile_reviews' restaurant.RestaurantId %}"
-                        aria-label="Change {{ restaurant.name }} review">Open</a></span>
-                        {% endif %}
-                    </p>
-                </div>
-            {% endfor %}
+    
+    
+        <div class=" card col-lg-4 col-md-6 text-center">
+            <div class="card-header">
+            <h3 class="form-heading">My Reviews</h3>
             </div>
-            {% else %}
-            <p>You haven’t reviewed anything yet </p>
-            {% endif %}
-            <div class="text-center">
-                {% if user == profile.user %}
-                <a class="site-btn flex-grow-1 btn btn-primary main-button"
-                href="{% url 'editprofile' user.username %}">Edit Profile</a>
+            <div class="card-body">
+                {% if profile.reviewed.exists %}
+                <div class="list-group ">
+                {% for restaurant in profile.reviewed.all %}
+                <div class="d-flex justify-content-between align-items-center">
+                        <a class="text-dark flex-grow-1" href="{{ restaurant.website }}" target="_blank"
+                        aria-label="View {{ restaurant.name }} details">{{ restaurant.name }}</a>
+                    
+                        {% if request.user == profile.user %}
+                        <a href="{% url 'profile_reviews' restaurant.RestaurantId %}"
+                        aria-label="Change {{ restaurant.name }} review"
+                        class="btn btn-sm btn-primary button-dbneats">Open</a>
+                        {% endif %}
+                    
+                </div>
+                {% endfor %}
+                </div>
+                {% else %}
+                <p>You haven’t reviewed anything yet </p>
                 {% endif %}
             </div>
+        </div>
+        <div class="text-center">
+            {% if user == profile.user %}
+            <a class="site-btn flex-grow-1 btn btn-primary main-button"
+            href="{% url 'editprofile' user.username %}">Edit Profile</a>
+            {% endif %}
         </div>
     </div>
     
