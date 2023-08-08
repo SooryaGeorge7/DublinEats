@@ -2,13 +2,16 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<div class="container">
+<div class="container d-flex flex-column align-items-center justify-content-center min-vh-100">
     <div class="col-lg-4 col-md-4">
+        <div class="d-flex justify-content-center"> 
         <img src="{{ profile.profile_image.url }}" class="rounded-circle prof-img"
             alt="{{ profile.user.username }} Profile Image">
+        </div>
     </div>
-    <h1>{{ profile.user.username }}</h1>
-    <div>
+    <div class="text-center fw-bold">
+        <h2 class="form-heading fw-bold">Edit Profile</h2>
+    
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div>
@@ -16,9 +19,10 @@
                 {{ profile_form|crispy }}
             </div>
             <button class="btn btn-outline-info button-dbneats" type="submit"> Update </button>
-            <button type="button" class="btn btn-outline-info button-dbneats" data-bs-toggle="modal" data-bs-target="#deleteProfileModal">
-                Delete Profile
-              </button>
+            <button type="button" class="btn btn-outline-info remove-button" data-bs-toggle="modal" data-bs-target="#deleteProfileModal">
+                Delete 
+            </button>
+            <a type="button" href="{% url 'profile' user.username %}" class="btn btn-outline-info button-dbneats">Exit</a>
         </form>
     </div>
 </div>
