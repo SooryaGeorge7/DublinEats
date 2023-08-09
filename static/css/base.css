@@ -57,6 +57,8 @@
     border-radius: 1rem;
 }
 
+
+
 .remove-button {
     color: var(--light-color);
     background-color: #E74c3c;
@@ -158,18 +160,44 @@
     font-size: 1.5rem;
     font-weight:bold;
 }
-
+/** Rate buttons **/
 .user-done {
     color: var(--light-color);
     background-color: var(--secondary-color);
     pointer-events: none;
+    border-radius: 1rem;
 }
 
+.rate-btn {
+    color: var(--primary-color) !important;
+    background-color: var(--light-color);
+    border-color: var(--primary-color);
+    border-radius: 1rem;
+}
 
+.rate-btn:hover {
+    color: var(--secondary-color) !important; 
+    background-color: var(--light-color);
+    outline-color: var(--primary-color);
+    border-color: var(--primary-color);
+    border-radius: 1rem;
+}
+
+.pin {
+    background-color:  rgba(255,255,255,0.2);
+}
+
+.pin:hover {
+    color: #E74c3c;
+    background-color:  rgba(255,255,255,0.2);
+}
 .pinned {
     color: #E74c3c;
     background-color: rgba(255,255,255,0.2);
     border-color: rgba(255,255,255,0.2);
+}
+.pinned:hover {
+    background-color:rgba(255,255,255,0.2);
 }
 
 /**Carousal controls **/

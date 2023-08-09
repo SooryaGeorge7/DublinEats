@@ -1,63 +1,76 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section >
+<section>
     <div class="container">
         <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 pb-5">
-            
+
             {% for restaurant in restaurants %}
-            
+
             <div class="col">
-                <div class="card h-100">
-                    <div id="carousel-{{ forloop.counter }}" class="carousel slide" data-bs-interval="false" >
+                <div class="card h-100 shadow p-2  bg-body-tertiary rounded">
+                    <div id="carousel-{{ forloop.counter }}" class="carousel slide" data-bs-interval="false">
+                        <ol class="carousel-indicators">
+                            {% for image_url in restaurant.image_urls %}
+                            <li data-bs-target="#carousel-{{ forloop.parentloop.counter }}" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
+                            {% endfor %}
+                        </ol>
                         <div class="carousel-inner">
                             {% for image_url in restaurant.image_urls %}
                             <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                                <img src="{{ image_url }}" height="280" class="d-block w-100" alt="Image for {{ restaurant.name }}">
+                                <img src="{{ image_url }}" height="280" class="d-block w-100"
+                                    alt="Image for {{ restaurant.name }}">
                             </div>
                             {% endfor %}
                         </div>
-                        <button class="carousel-control-prev " type="button" data-bs-target="#carousel-{{ forloop.counter }}"
-                            data-bs-slide="prev">
+                        <button class="carousel-control-prev " type="button"
+                            data-bs-target="#carousel-{{ forloop.counter }}" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next " type="button" data-bs-target="#carousel-{{ forloop.counter }}"
-                            data-bs-slide="next">
+                        <button class="carousel-control-next " type="button"
+                            data-bs-target="#carousel-{{ forloop.counter }}" data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
                     <div class="card-body">
-                        <h3 class="card-title">{{ restaurant.name }}</h3>
+                        <h3 class="card-title form-heading fw-bold">{{ restaurant.name }}</h3>
                         <p class="card-text"> {{ restaurant.address }}</p>
-                        <a href="{{ restaurant.website_url }}" target="_blank" class="btn btn-primary"> website</a>
-                        {% if restaurant.pinned == False %}
-                        <a href="{% url 'to_visit' restaurant.place_id %}" class="btn btn-secondary position-absolute top-0 end-0"
-                         rel="noopener" aria-label="Pin this restaurant" data-bs-toggle="tooltip" data-bs-placement="top" title="Pin to profile"><i class="bi bi-pin-angle-fill fs-4"></i></a>
-                        {% else %}
-                        <a href="{% url 'to_visit' restaurant.place_id %}" class="btn btn-secondary pinned position-absolute top-0 end-0 "
-                         rel="noopener" aria-label="Pin this restaurant" data-bs-toggle="tooltip" data-bs-placement="top" title="Unpin"><i class="bi bi-pin-angle-fill fs-4"></i></a>
-                        {% endif %}
-                        {% if restaurant.user_reviewed == True %}
-                        <button  class="btn btn-secondary user-done position-absolute top-0 start-0 "
-                         rel="noopener" aria-label="Rate this restaurant" >Rated <i class="bi bi-star-fill"></i></button>
-                        {% else %}
-                        <a href="{% url 'review' restaurant.place_id %}" class="btn btn-secondary position-absolute top-0 start-0"
-                         rel="noopener" aria-label="Rate this restaurant">Rate <i class="bi bi-star-fill"></i></a>
-                        {% endif %}
-                        <a href="{% url 'allreviews' restaurant.place_id %}" class="btn btn-primary">
-                            All Reviews <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
-
+                        <div class="d-flex flex-column align-items-start">
+                            {% if restaurant.user_reviewed == True %}
+                            <button class="btn btn-secondary user-done w-100 fw-bold" rel="noopener"
+                                aria-label="Rate this restaurant">Rated <i class="bi bi-star-fill "></i></button>
+                            {% else %}
+                            <a href="{% url 'review' restaurant.place_id %}"
+                                class="btn btn-secondary w-100 button-dbneats fw-bold" rel="noopener"
+                                aria-label="Rate this restaurant">Rate <i class="bi bi-star-fill "></i></a>
+                            {% endif %}
+                            <a href="{% url 'allreviews' restaurant.place_id %}" class="btn btn-primary w-100 button-dbneats">
+                                All Reviews <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>
+                            <a href="{{ restaurant.website_url }}" target="_blank" class="btn btn-primary w-100 button-dbneats">Visit website</a>
+                            {% if restaurant.pinned == False %}
+                            <a href="{% url 'to_visit' restaurant.place_id %}"
+                                class="btn btn-secondary pin position-absolute top-0 end-0" rel="noopener"
+                                aria-label="Pin this restaurant" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="Pin to profile"><i class="bi bi-pin-angle-fill fs-4"></i></a>
+                            {% else %}
+                            <a href="{% url 'to_visit' restaurant.place_id %}"
+                                class="btn btn-secondary pinned position-absolute top-0 end-0 " rel="noopener"
+                                aria-label="Pin this restaurant" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="Unpin"><i class="bi bi-pin-angle-fill fs-4"></i></a>
+                            {% endif %}
+                            
+                        </div>
 
                     </div>
                 </div>
             </div>
-            
+
             {% endfor %}
         </div>
-        
+
     </div>
     <div class="container">
         <div class="row">
@@ -90,7 +103,7 @@
             </div>
         </div>
     </div>
-    
+
 
 </section>
 {% endblock%}
