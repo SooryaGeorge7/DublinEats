@@ -19,12 +19,13 @@
                 
                 <p><span class="mt-3 fw-bold">Favourite Cuizine<br></span>{{ profile.fav_food }}</p>
                 <div class="text-end position-absolute top-0 end-0">
-                    {% if user == profile.user %}
+                    {% if user == profile.user or user.is_superuser %}
                     <a class="site-btn flex-grow-1 btn btn-primary main-button"
-                    href="{% url 'editprofile' user.username %}"
+                    href="{% url 'editprofile' profile.user.username %}"
                     data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
                     <i class="bi bi-pencil-square"></i></a>
                     {% endif %}
+                    
                 </div>
             </div>
         </div>
