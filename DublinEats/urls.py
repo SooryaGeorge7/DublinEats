@@ -22,13 +22,13 @@ from users import views as user_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('signup/', user_views.signup, name='signup'),
+    # path('signup/', user_views.signup, name='signup'),
     path('profile/<username>', user_views.profile, name='profile'),
     path('editprofile/<username>', user_views.edit_profile, name='editprofile'),
     path('deleteprofile/<username>', user_views.delete_profile, name='deleteprofile'),
-    path('userlogin/', auth_views.LoginView.as_view(template_name='users/login.html'), name='userlogin'),
-    path('userlogout/', auth_views.LogoutView.as_view(
-        template_name='users/logout.html'), name='userlogout'),
+    # path('userlogin/', auth_views.LoginView.as_view(template_name='users/login.html'), name='userlogin'),
+    # path('userlogout/', auth_views.LogoutView.as_view(
+    #     template_name='users/logout.html'), name='userlogout'),
     path('password-reset/', auth_views.PasswordResetView.as_view(
         template_name='users/password_reset.html'), name='password_reset'),
     path('password-reset/done/', auth_views.PasswordResetDoneView.as_view(
@@ -38,7 +38,7 @@ urlpatterns = [
     path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(
         template_name='users/password_reset_complete.html'), name='password_reset_complete'),
     path("restaurants/", include("restaurants.urls")),
-    
+    path("accounts/", include("allauth.urls")),
     path("review/", include("review.urls")),
     path('', include('home.urls')),
 ]
