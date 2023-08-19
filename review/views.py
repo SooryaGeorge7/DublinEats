@@ -29,10 +29,11 @@ def review(request, restaurant_id):
             # restaurant_comment = comment_form.save(commit=False)
             restaurant_rating.restaurant = restaurant
             # restaurant_comment.restaurant = restaurant
-            profile.reviewed.add(restaurant)
+            
             restaurant_rating.user = user
             # restaurant_comment.user = user
             restaurant_rating.save()
+            profile.reviewed.add(restaurant)
             # restaurant_comment.save()
             messages.success(
                 request, f"{user.username} you have reviewed {restaurant}"
@@ -78,7 +79,7 @@ def edit_review(request, restaurant_id, review_id):
     review = get_object_or_404(Review, id=review_id)
     
     
-    if user_review.exists():
+    if user_review.exists() or user.is_superuser:
         user_reviewed = True
     else:
         user_reviewed = False
@@ -107,6 +108,7 @@ def edit_review(request, restaurant_id, review_id):
     context = {
         "rating_form": rating_form,
         "review":review,
+        "user_review": user_review,
         "restaurant": restaurant,
         "user_reviewed": user_reviewed,
     }
