@@ -18,7 +18,9 @@
                 {{ user_form|crispy }}
                 {{ profile_form|crispy }}
             </div>
+            {% if user == profile.user %}
             <button class="btn btn-outline-info button-dbneats" type="submit"> Update </button>
+            {% endif %}
             <button type="button" class="btn btn-outline-info remove-button" data-bs-toggle="modal" data-bs-target="#deleteProfileModal">
                 Delete 
             </button>
@@ -37,7 +39,7 @@
                 {% csrf_token %}
                 <h2 class="mb-3 text-dark"><span>Delete</span> Profile</h2>
                 <p><i>
-                    {% if user.is_superuser %}
+                    {% if user.is_superuser and user != profile.user%}
                     <span>{{ request.user }}</span> Are you sure you want to delete {{ profile.user.username}}'s profile and account?
 
                     {% else %}
