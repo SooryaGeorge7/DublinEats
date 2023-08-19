@@ -81,7 +81,9 @@
         <!-- Submit Button -->
         
         {% if user_reviewed == True  %}
-        <button type="submit" class="btn btn-primary">Update</button>
+            {% if review.user == user %}
+            <button type="submit" class="btn btn-primary">Update</button>
+            {% endif %}
         <button type="button" class="btn btn-outline-info button-dbneats" data-bs-toggle="modal" data-bs-target="#deleteProfileModal">
             Delete
         </button>
